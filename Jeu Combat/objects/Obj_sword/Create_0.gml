@@ -1,5 +1,4 @@
 cc = 0
-p_anim = 0
 
 sprite_fight_neutral = basic_sword_neutral
 sprite_fight_hurt = basic_sword_hurt

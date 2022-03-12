@@ -25,8 +25,8 @@ function draw_formation(){
 	draw_set_color(c_white)
 	draw_text(12, 400, "Compétences")
 	
-	if form_ally != "none" {
-		var char = global.team[form_ally]
+	if ally_form != noone {
+		var char = global.team[ally_form]
 		draw_set_font(Font_menu)
 		draw_set_color(c_black)
 		draw_text(16, 426, "PAGE 1 / 1")
@@ -51,15 +51,15 @@ function draw_formation(){
 		
 		draw_sprite(fiche_formation, char.Num, 532, 52+i*88)
 		
-		if form_ally == i {
+		if ally_form == i {
 			draw_sprite(fiche_formation_light, char.Num, 532, 52+i*88)
 		}
 		
 		draw_set_font(Font_mini)
 		draw_set_color(c_black)
-		draw_text(611, 91+i*88, char.Nom)
+		draw_text(611, 91+i*88, char.Name)
 		draw_set_color(c_white)
-		draw_text(608, 88+i*88, char.Nom)
+		draw_text(608, 88+i*88, char.Name)
 		
 		var PV_ally = ((char.PV_Max-char.PV)/char.PV_Max)*100
 		var PM_ally = ((char.PM_Max-char.PM)/char.PM_Max)*100
@@ -72,13 +72,13 @@ function draw_formation(){
 		draw_text(632, 123+87*i, string(char.PM)+"/"+string(char.PM_Max))
 		draw_healthbar(632, 118+88*i, 721, 125+88*i, PM_ally, c_black, c_black, c_black, 1, 0, 0)
 		
-		draw_text(760, 74+i*88, string(char.Attaque))
+		draw_text(760, 74+i*88, string(char.Attack))
 		draw_text(760, 92+i*88, string(char.Defense))
-		draw_text(760, 110+i*88, string(char.Attaque_magique))
-		draw_text(760, 128+i*88, string(char.Defense_magique))
+		draw_text(760, 110+i*88, string(char.Magic_attack))
+		draw_text(760, 128+i*88, string(char.Magic_defense))
 	}
 	
-	draw_sprite_ext(pointeur, 0, 500, 92+88*form_choice, 2, 2, 0, c_white, 1)
+	draw_sprite_ext(pointeur, 0, 500, 92+88*choice_form, 2, 2, 0, c_white, 1)
 	
 	if menu[menu_i] == "formation_c" {
 		draw_set_font(Font)
@@ -88,5 +88,4 @@ function draw_formation(){
 		draw_set_color(c_white)
 		draw_text_ext(226, 351, "La formation ne sera plus changée pour 2 tours. Confirmer ?", 45, 348)
 	}
-
 }

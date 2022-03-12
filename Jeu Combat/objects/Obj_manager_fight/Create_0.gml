@@ -1,24 +1,23 @@
-issue_battle = false
+issue_battle = false //issue du combat
 act = false //montre si une action a été choisie
 menu_effect = 0 //positionne le menu et la fiche associée
-impact = false
-flashAlpha = 0
+impact = false //dit quand l'ennemi est touché
+flashAlpha = 0 //Effet de flash
 
-choice_skill = 0
-choice_objets = 0
-choix_enemy = 1 //détermine l'attaque ennemi
-enemy_target = 0
-choix = 0 //attaque à choisir
+choice_skill = 0 //compétence à choisir
+choice_objets = 0 //object à choisir
+choice_enemy = 1 //détermine l'attaque ennemi
+enemy_target = 0 //cible de l'ennemi
+choice = 0 //attaque à choisir
 target = 0 //cible à attaquer
-all_target = false //si toute l'équipe est ciblée
+all_target = noone //si toute l'équipe est ciblée
 
-form_ally = "none"
-//form_ally2 = 0
-form_choice = 0
-form_turn = 0
+ally_form = noone //allié choisi dans la formation
+choice_form = 0 //allié à échanger dans la formation
+turn_form = 0 //tours avant que la formation ne redevienne disponible
 
-menu = ["action"]
-menu_i = 0
+menu = ["action"] //liste de progression du menu
+menu_i = 0 //indice du menu
 
 compte = 0 //anime l'effet
 compte_flash = 0 //anime l'effet flash
@@ -31,30 +30,27 @@ damage = false //dégats
 damage_show = false //montre les dégats
 cible = false //contient l'objet cible
 lanceur = false //contient l'objet lanceur
-type_attack = false
+type_attack = false //genre de l'attaque
 
 global.team = [Obj_Luke, Obj_Matt] //Equipe des héros
 global.team_enemy = [Obj_enemy_1, Obj_enemy_2] //Equipe des monstres
-team_a = global.team
-team_enemy_a = global.team_enemy
+team_a = global.team //Equipe héros excluant les KO
+team_enemy_a = global.team_enemy //Equipe monstres excluant les KO
 
-form_team = global.team
-
-//team_target = global.team_enemy
+team_form = global.team //Equipe de la formation
 
 team_target = team_a //équipe à cibler
 turn = 0 //Tour par membre
 turn_team = global.team //Equipe qui joue actuellement
 team_KO = 0 //Membres de l'équipe KO
 enemy_KO = 0 //Monstres KO
-turn_fight = 0
+turn_fight = 0 //Tours du combat
 
-message_routine = ["Un germicroque apparaît !", "Le germicroque vous menace avec ses dents.", "C'est un ennemi plutôt faible, vous devriez vous en sortir...", "Bon, qu'allez vous faire ?"]
-message_quick = false
-message_quick_t = 0
-message_i = 0
-message_monitor = message_routine[message_i]
-
+message_routine = ["Un germicroque apparaît !", "Le germicroque vous menace avec ses dents.", "C'est un ennemi plutôt faible, vous devriez vous en sortir...", "Bon, qu'allez vous faire ?"] //Messages affichés lors des combats
+message_quick = false //Message rapide
+message_quick_t = 0 //Durée du message rapide
+message_i = 0 //Indice du message
+message_monitor = message_routine[message_i] //Message affiché lors du combat
 compte_i = 0
 
 dispo_team()

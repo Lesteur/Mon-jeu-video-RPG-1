@@ -1,16 +1,16 @@
-Nom = "Luke"
+Name = "Luke"
 Type = "Ally"
 Num = 0
 Classe = "Epéiste"
-Attaque = 7
-Attaque_magique = 4
+Attack = 7
+Magic_attack = 4
 Defense = 10
-Defense_magique = 5
+Magic_defense = 5
 PV_Max = 80
 PV = PV_Max
 PM_Max = 15
 PM = PM_Max
-statut = false
+status = false
 PF = false
 
 weapon = Obj_sword

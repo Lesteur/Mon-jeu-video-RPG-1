@@ -1,18 +1,18 @@
-function use_objets(player, objet){
+function use_objects(player, object){
 	
-	if menu[menu_i] == "objets" {
+	if menu[menu_i] == "objects" {
 		menu_i ++
-		menu[menu_i] = "objets_target"
+		menu[menu_i] = "objects_target"
 		audio_play_sound(snd_select, 4, false)
 	} else {
-		message_monitor = player.Nom + " utilise " + string(objet[0]) + " !"
+		message_monitor = player.Name + " utilise " + string(object[0]) + " !"
 		lanceur = player
 		player.animation = 5
 		global.inventory[choice_objets][1] --
 		if global.inventory[choice_objets][1] == 0 {
 			ds_list_delete(global.inventory, choice_objets)
 		}
-		script_execute(objet[2], player, team_target[target], objet)
+		script_execute(object[2], player, team_target[target], object)
 	}
 	
 }

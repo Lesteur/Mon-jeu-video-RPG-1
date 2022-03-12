@@ -24,8 +24,6 @@ for (var i = 0; i < array_length(team_enemy_a); ++i;) {
 
 draw_sprite(monitor_fight, 0, 0, 560)
 
-//draw_sprite(menu_1, choix, 200*turn, 442)
-
 for (var i = 0; i < array_length(global.team); ++i;) {
 	var m_effect = menu_effect
 	if i != turn {
@@ -33,9 +31,9 @@ for (var i = 0; i < array_length(global.team); ++i;) {
 	}
 	
 	if global.team[i].Classe == "Mage" {
-		draw_sprite(menu_2, choix, 200*i, 442)
+		draw_sprite(menu_2, choice, 200*i, 442)
 	} else {
-		draw_sprite(menu_1, choix, 200*i, 442)
+		draw_sprite(menu_1, choice, 200*i, 442)
 	}
 	
 	draw_sprite(fiche_stats_fight, global.team[i].Num, i*200, 442-m_effect)
@@ -51,21 +49,21 @@ for (var i = 0; i < array_length(global.team); ++i;) {
 	draw_healthbar(100+200*i, 428-m_effect, 189+200*i, 435-m_effect, PM_allies[i], c_black, c_black, c_black, 1, 0, 0)
 }
 
-if ((menu[menu_i] == "target") || (menu[menu_i] == "skills_target") || (menu[menu_i] == "objets_target")) && !act {
+if ((menu[menu_i] == "target") || (menu[menu_i] == "skills_target") || (menu[menu_i] == "objects_target")) && !act {
 	
-	if all_target == "possible" && array_length(team_target) > 1 {
+	if all_target == false && array_length(team_target) > 1 {
 		draw_sprite(monitor_target, 0, 800, 0)
 	} else if all_target == true && array_length(team_target) > 1 {
 		draw_sprite(monitor_target, 1, 800, 0)
 	}
 	
-	if all_target == false || all_target == "possible" {
+	if all_target == false || all_target == noone {
 		if team_target == team_enemy_a {
 			draw_healthbar(230, 470, 230+180, 470+10,PV_enemies[target], c_red, c_green, c_green, 0, 1, 0)
 		}
 	}
 	
-	if all_target == false || all_target == "possible" {
+	if all_target == false || all_target == noone {
 		draw_sprite_ext(pointeur, 0, team_target[target].x*2-60, team_target[target].y*2, 2, 2, 0, c_white, 1)
 	} else {
 		for(var i = 0; i < array_length(team_target); i++) {
@@ -73,17 +71,6 @@ if ((menu[menu_i] == "target") || (menu[menu_i] == "skills_target") || (menu[men
 		}
 	}
 }
-
-// Vie des ennemis
-
-draw_set_font(Font_mini)
-
-//for (var i = 0; i < array_length(global.team_enemy); ++i;) {
-	
-//	draw_text(global.team_enemy[i].x*2-90, global.team_enemy[i].y*2+70, "Monstre PV : "+string(global.team_enemy[i].PV)+" / "+string(global.team_enemy[i].PV_Max))
-//	draw_healthbar(global.team_enemy[i].x*2-90, global.team_enemy[i].y*2+80, global.team_enemy[i].x*2+90, global.team_enemy[i].y*2+90, PV_enemies[i], c_black, c_green, c_green, 0, 1, 0)
-
-//}
 
 // Affichage du tour
 
@@ -112,9 +99,9 @@ if impact {
 	var shi = c.shield
 }
 
-if (flashAlpha > 0) && c.statut != "KO" {
+if (flashAlpha > 0) && c.status != "KO" {
 	shader_set(shader_flash)
-	if all_target == false || all_target == "possible" {
+	if all_target == false || all_target == noone {
 		draw_sprite_ext(c.sprite_index, c.image_index, c.x*2, c.y*2, 2, 2, 0, c_white, flashAlpha)
 		if wea && wea.image_alpha != 0 {
 			draw_sprite_ext(wea.sprite_index, wea.image_index, wea.x*2, wea.y*2, 2, 2, 0, c_white, flashAlpha)
@@ -156,7 +143,7 @@ if effect_target != false && impact {
 		}
 	} else {
 		for(var i = 0; i < array_length(cible); i++) {
-			if cible[i].statut == "KO" {
+			if cible[i].status == "KO" {
 				draw_sprite_ext(effect_target, compte, cible[i].x*2, cible[i].y*2, 2, 2, 0, c_white, 1)
 			}
 		}
@@ -241,7 +228,7 @@ if menu[menu_i] == "skills" && !act {
 	
 }
 
-if menu[menu_i] == "objets" && !act {
+if menu[menu_i] == "objects" && !act {
 	
 	draw_sprite(menu_skills, 0, 190, 25)
 	
@@ -249,7 +236,7 @@ if menu[menu_i] == "objets" && !act {
 		
 		var color = c_white
 		var ob = global.inventory[i]
-		var nom = ob[0]
+		var name = ob[0]
 		var qa = ob[1]
 		
 		if choice_objets == i {
@@ -258,8 +245,8 @@ if menu[menu_i] == "objets" && !act {
 		
 		draw_set_font(Font_mini)
 		draw_set_halign(fa_left)
-		draw_text_color(220, 50+30*i, nom, c_black, c_black, c_black, c_black, 1)
-		draw_text_color(218, 48+30*i, nom, color, color, color, color, 1)
+		draw_text_color(220, 50+30*i, name, c_black, c_black, c_black, c_black, 1)
+		draw_text_color(218, 48+30*i, name, color, color, color, color, 1)
 		draw_set_font(Font_menu)
 		draw_set_halign(fa_right)
 		draw_text_color(458, 59+30*i, string(qa), c_black, c_black, c_black, c_black, 1)

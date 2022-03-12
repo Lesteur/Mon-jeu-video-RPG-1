@@ -1,19 +1,19 @@
 //Obj_heros.animation = 0
 //Obj_monstre.animation = 0
 
-if lanceur.statut != "KO" {
+if lanceur.status != "KO" {
 	lanceur.animation = 0
 }
 
 for (var i = 0; i < array_length(cible); i++) {
-	if cible[i].statut != "KO" {
+	if cible[i].status != "KO" {
 		cible[i].animation = 0
 	}
 }
 
 act = false
-choix = 0
-choix_enemy = 0
+choice = 0
+choice_enemy = 0
 compte = 0
 compte_i = 0
 compte_flash = 0
@@ -29,7 +29,7 @@ choice_objets = 0
 choice_skill = 0
 impact = false
 type_attack = false
-all_target = false
+all_target = noone
 
 menu_i = 0
 menu = ["action"]
@@ -38,14 +38,14 @@ team_a = []
 team_enemy_a = []
 for (var i = 0; i < array_length(global.team); ++i;) {
 	global.team[i].PF = false
-	if global.team[i].statut != "KO" {
+	if global.team[i].status != "KO" {
 		array_insert(team_a, array_length(team_a), global.team[i])
 	}
 }
 
 for (var i = 0; i < array_length(global.team_enemy); ++i;) {
 	global.team_enemy[i].PF = false
-	if global.team_enemy[i].statut != "KO" {
+	if global.team_enemy[i].status != "KO" {
 		array_insert(team_enemy_a, array_length(team_enemy_a), global.team_enemy[i])
 	}
 }
@@ -71,7 +71,7 @@ if issue_battle == 0 {
 		turn = 0
 		if global.player_turn == 1 {
 			turn_fight ++
-			form_turn --
+			turn_form --
 			lower_boosts(global.team)
 			lower_boosts(global.team_enemy)
 			for (var i = 0; i < array_length(global.team); ++i;) {

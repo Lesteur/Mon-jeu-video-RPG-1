@@ -19,23 +19,15 @@ function set_weak1(array, comp) {
 				if comp[6] == array[a][1] {
 					set_weak2(array[a])
 				}
-				//if comp[6] == genre[a][1] {
-				//	f += 0.5
-				//}
 				break
 			case "element":
 				if comp[7] == array[a][1] {
 					set_weak2(array[a])
 				}
-				//if comp[7] == genre[a][1] {
-					//cible[i].PF = true
-				//	f += 1
-				//}
 				break
 		}
 	}
 }
-
 
 function damage_calcul(comp, type){
 	
@@ -55,11 +47,14 @@ function damage_calcul(comp, type){
 	
 	for(var i = 0; i < array_length(cible); i++) {
 		
+		weak = 1
+		strength = 1
+		
 		if type == "magic" {
-			var att = lanceur.Attaque_magique
-			var def = cible[i].Defense_magique
+			var att = lanceur.Magic_attack
+			var def = cible[i].Magic_defense
 		} else {
-			var att = lanceur.Attaque
+			var att = lanceur.Attack
 			var def = cible[i].Defense
 		}
 		
@@ -68,18 +63,9 @@ function damage_calcul(comp, type){
 		set_weak1(array_weak, comp)
 		set_weak1(array_strength, comp)
 		
-		//for(var a = 0; a < array_length(array_weak); a++) {
-			//if array_weak[a][0] == "type" {
-			//	if comp[6] == array_weak[a][1] {
-			//		weak += 0.5
-			//	}
-			//} else if array_weak[a][0] == "element" {
-			//	if comp[7] == array_weak[a][1] {
-			//		cible[i].PF = true
-			//		weak += 1
-			//	}
-			//}
-		//}
+		if weak >= 1.5 {
+			cible[i].PF = true
+		}
 		
 		damage[i] = round((att * (puiss/array_length(cible)) * boost * weak * strength) / (def*cible[i].guard))
 	}

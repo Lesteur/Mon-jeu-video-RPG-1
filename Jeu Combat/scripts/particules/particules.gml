@@ -61,7 +61,6 @@ part_type_sprite(p, effect_snowflake, false, false, false)
 part_type_life(p, 60, 60)
 part_type_alpha3(p, 1, 1, 0)
 part_type_size(p, 1.5, 1.5, -0.05, 0)
-//part_type_speed(p, 3, 3, -0.1, 0)
 part_type_speed(p, 3.5, 3.5, -0.1, 0)
 part_type_direction(p, 0, 359, 0, 0)
 

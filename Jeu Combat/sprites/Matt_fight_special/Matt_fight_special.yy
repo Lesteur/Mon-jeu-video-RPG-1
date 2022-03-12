@@ -41,7 +41,7 @@
     "spriteId": {"name":"Matt_fight_special","path":"sprites/Matt_fight_special/Matt_fight_special.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 30.0,
+    "playbackSpeed": 6.0,
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,

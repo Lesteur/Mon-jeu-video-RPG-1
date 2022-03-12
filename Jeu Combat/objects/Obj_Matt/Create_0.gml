@@ -1,16 +1,16 @@
-Nom = "Matthieu"
+Name = "Matthieu"
 Type = "Ally"
 Num = 1
 Classe = "Mage"
-Attaque = 3
-Attaque_magique = 12
+Attack = 3
+Magic_attack = 12
 Defense = 7
-Defense_magique = 13
+Magic_defense = 13
 PV_Max = 60
 PV = PV_Max
 PM_Max = 25
 PM = 25
-statut = false
+status = false
 PF = false
 
 weapon = Obj_staff

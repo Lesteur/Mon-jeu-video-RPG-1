@@ -1,26 +1,23 @@
-Nom = "Germi 1"
+Name = "Germi 1"
 Type = "Enemy"
-Attaque = 7
-Attaque_magique = 3
+Attack = 7
+Magic_attack = 3
 Defense = 5
-Defense_magique = 5
+Magic_defense = 5
 PV_Max = 500
 PV = PV_Max
-statut = false
+status = false
+weapon = false
+shield = false
 guard = 1
 PF = false
 
 boost = [[1, 0], [1, 0]]
 
 animation = 0
-p_anim = 0
 effect = effect_bite
-weapon = false
-shield = false
 
 depth = 50
-
-//Basic_attack = ["Croc carnivore", 0, Atk_normale, 15, 1, 0, "bite", false]
 
 sprite_fight_neutral = germicroque_neutral
 sprite_fight_hurt = germicroque_hurt

@@ -6,7 +6,7 @@
     "path": "folders/Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "use_objets",
+  "name": "use_objects",
   "tags": [],
   "resourceType": "GMScript",
 }
