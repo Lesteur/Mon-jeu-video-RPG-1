@@ -10,7 +10,7 @@ function use_objects(player, object){
 		player.animation = 5
 		global.inventory[choice_objets][1] --
 		if global.inventory[choice_objets][1] == 0 {
-			ds_list_delete(global.inventory, choice_objets)
+			array_delete(global.inventory, choice_objets, 1)
 		}
 		script_execute(object[2], player, team_target[target], object)
 	}
