@@ -4,6 +4,7 @@ menu_effect = 0 //positionne le menu et la fiche associée
 impact = false //dit quand l'ennemi est touché
 flashAlpha = 0 //Effet de flash
 
+choice_exam = 0
 choice_skill = 0 //compétence à choisir
 choice_objets = 0 //object à choisir
 choice_enemy = 1 //détermine l'attaque ennemi
@@ -24,6 +25,7 @@ compte_flash = 0 //anime l'effet flash
 effect_target = false //contient le sprite de l'effet pour la cible
 effect_lanceur = false //contient le sprite de l'effet pour le lanceur
 t = 0 //anime l'effet dégats
+cursor_i = 0
 out = false //arrête l'effet dégats
 
 damage = false //dégats
@@ -31,6 +33,7 @@ damage_show = false //montre les dégats
 cible = false //contient l'objet cible
 lanceur = false //contient l'objet lanceur
 type_attack = false //genre de l'attaque
+color_attack = [0]
 
 global.team = [Obj_Luke, Obj_Matt] //Equipe des héros
 global.team_enemy = [Obj_enemy_1, Obj_enemy_2] //Equipe des monstres
@@ -53,8 +56,17 @@ message_i = 0 //Indice du message
 message_monitor = message_routine[message_i] //Message affiché lors du combat
 compte_i = 0
 
+global.icon = ds_map_create()
+global.icon[? "heal"] = 0
+global.icon[? "fire"] = 8
+global.icon[? "ice"] = 9
+global.icon[? "thunder"] = 10
+global.icon[? "slash"] = 16
+global.icon[? "object"] = 20
+
+function get_icon(icon) {
+	return global.icon[? icon]
+}
+
 dispo_team()
-
 particules()
-
-audio_play_sound(mus_rude_buster, 10, true)

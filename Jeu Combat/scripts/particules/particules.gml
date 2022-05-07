@@ -3,6 +3,11 @@ part_system_depth(global.partSystem100, -100)
 global.partSystem50 = part_system_create()
 part_system_depth(global.partSystem50, -50)
 
+var p = part_type_create()
+part_type_sprite(p, basic_sword_neutral, true, true, false)
+part_type_life(p, 7, 7)
+global.part_attack = p
+
 //Effect heal PV
 var p = part_type_create()
 part_type_sprite(p, effect_heal_pv, true, true, false)
@@ -75,3 +80,11 @@ part_type_speed(p, 0.05, 0.05, 0, 0)
 part_type_direction(p, 0, 359, 0, 10)
 
 global.ptThunder = p
+
+//Flash
+var p = part_type_create()
+part_type_sprite(p, 0, true, false, false)
+part_type_alpha3(p, 1, 0.25, 1)
+part_type_life(p, 30, 30)
+
+global.ptFlash = p

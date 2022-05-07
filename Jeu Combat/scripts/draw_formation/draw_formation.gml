@@ -10,28 +10,18 @@ function draw_formation(){
 	draw_sprite(menu_formation, 0, 0, 0)
 	
 	draw_set_font(Font_mini)
-	draw_set_color(c_black)
-	draw_text(15, 39, "Réserve")
-	draw_set_color(c_white)
-	draw_text(12, 36, "Réserve")
 	
-	draw_set_color(c_black)
-	draw_text(655, 39, "Equipe")
-	draw_set_color(c_white)
-	draw_text(652, 36, "Equipe")
+	text_sha(12, 36, "Réserve")
 	
-	draw_set_color(c_black)
-	draw_text(15, 403, "Compétences")
-	draw_set_color(c_white)
-	draw_text(12, 400, "Compétences")
+	text_sha(652, 36, "Equipe")
+	
+	text_sha(12, 400, "Compétences")
 	
 	if ally_form != noone {
 		var char = global.team[ally_form]
 		draw_set_font(Font_menu)
-		draw_set_color(c_black)
-		draw_text(16, 426, "PAGE 1 / 1")
-		draw_set_color(c_white)
-		draw_text(14, 424, "PAGE 1 / 1")
+		
+		text_sha(14, 424, "PAGE 1 / 1")
 		
 		draw_set_font(Font_mini)
 		for (var i = 0; i<array_length(char.skills); i++) {
@@ -56,10 +46,8 @@ function draw_formation(){
 		}
 		
 		draw_set_font(Font_mini)
-		draw_set_color(c_black)
-		draw_text(611, 91+i*88, char.Name)
-		draw_set_color(c_white)
-		draw_text(608, 88+i*88, char.Name)
+		
+		text_sha(608, 88+i*88, char.Name)
 		
 		var PV_ally = ((char.PV_Max-char.PV)/char.PV_Max)*100
 		var PM_ally = ((char.PM_Max-char.PM)/char.PM_Max)*100
@@ -78,7 +66,7 @@ function draw_formation(){
 		draw_text(760, 128+i*88, string(char.Magic_defense))
 	}
 	
-	draw_sprite_ext(pointeur, 0, 500, 92+88*choice_form, 2, 2, 0, c_white, 1)
+	draw_sprite_ext(cursor, cursor_i, 500, 92+88*choice_form, 2, 2, 0, c_white, 1)
 	
 	if menu[menu_i] == "formation_c" {
 		draw_set_font(Font)

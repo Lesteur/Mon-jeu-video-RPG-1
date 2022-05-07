@@ -25,9 +25,16 @@ function functions_magic(comp){
 			break
 		case "Soin":
 			for (var i = 0; i < array_length(cible); i++) {
-				damage[i] = comp[3]/array_length(cible)
+				var w = check_weakness(cible[i].Weakness, "element", "heal")
+				if w {
+					w = -(cible[i].Weakness[w][3])
+				} else {
+					w = 1
+				}
+				damage[i] = -comp[3]/array_length(cible)*w
 			}
-			type_attack = "heal_pv"
+			type_attack = "attack"
+			effect_target = effect_heal_pv
 			lanceur.cc = -1000
 			lanceur.weapon.cc = -1000
 			alarm[0] = 70

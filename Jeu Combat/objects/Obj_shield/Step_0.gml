@@ -8,7 +8,7 @@ switch(Obj_Luke.animation) {
 		p_anim = 0
 		image_index = 0
 		image_speed = 0
-		depth = Obj_Luke.depth -1
+		depth = Obj_Luke.depth - 1
 		if Obj_Luke.PV >= 0.25*Obj_Luke.PV_Max {
 			x = Obj_Luke.x
 			y = Obj_Luke.y

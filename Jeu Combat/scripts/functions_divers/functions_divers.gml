@@ -1,5 +1,9 @@
 function select_charac(team) {
 	
+	if target >= array_length(team_target) {
+		target = 0
+	}
+	
 	if keyboard_check_pressed(vk_up) && array_length(team) > 1 {
 		target --
 		if target < 0 {
@@ -45,23 +49,12 @@ function select_choice(variable, number, direction) {
 	
 }
 
-function dispo_team() {
-	for (var i = 0; i<array_length(global.team); i++) {
-		var char = global.team[i]
-		char.x = 90 - i*20
-		char.y = 80 + i*20
-		char.depth = 40 - i*10
+function text_sha(x, y, str, color) {
+	if color == undefined {
+		color = c_white
 	}
-}
-
-function lower_boosts(team) {
-	for (var i = 0; i < array_length(team); i++) {
-		for (var a= 0; a < array_length(team[i].boost); a++) {
-			team[i].boost[a][1] --
-			if team[i].boost[a][1] <= 0 {
-				team[i].boost[a][1] = 0
-				team[i].boost[a][0] = 1
-			}
-		}
-	}
+	draw_set_color(c_black)
+	draw_text(x+2, y+2, str)
+	draw_set_color(color)
+	draw_text(x, y, str)
 }

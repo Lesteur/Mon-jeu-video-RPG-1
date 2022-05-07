@@ -57,6 +57,7 @@ function fight_animation() {
 		break
 	case 6:
 		sprite_index = sprite_fight_victory
+		guard = 1
 		if (image_index >= image_number - 1) {
 			image_index = image_number - 1
 			image_speed = 0

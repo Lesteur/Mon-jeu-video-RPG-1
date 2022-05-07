@@ -27,6 +27,15 @@
     {"compositeImage":{"FrameId":{"name":"b424b11a-fade-4d90-8776-35720f149bb2","path":"sprites/basic_sword_neutral/basic_sword_neutral.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"b424b11a-fade-4d90-8776-35720f149bb2","path":"sprites/basic_sword_neutral/basic_sword_neutral.yy",},"LayerId":{"name":"48288071-ffea-42ec-bcfd-bd4deb26c25b","path":"sprites/basic_sword_neutral/basic_sword_neutral.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"basic_sword_neutral","path":"sprites/basic_sword_neutral/basic_sword_neutral.yy",},"resourceVersion":"1.0","name":"b424b11a-fade-4d90-8776-35720f149bb2","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"a52b6fd5-9f63-412b-a560-6b6309d42ff1","path":"sprites/basic_sword_neutral/basic_sword_neutral.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"a52b6fd5-9f63-412b-a560-6b6309d42ff1","path":"sprites/basic_sword_neutral/basic_sword_neutral.yy",},"LayerId":{"name":"48288071-ffea-42ec-bcfd-bd4deb26c25b","path":"sprites/basic_sword_neutral/basic_sword_neutral.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"basic_sword_neutral","path":"sprites/basic_sword_neutral/basic_sword_neutral.yy",},"resourceVersion":"1.0","name":"a52b6fd5-9f63-412b-a560-6b6309d42ff1","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"f2e78cf5-816c-4bf7-ae90-ac0d30ecf910","path":"sprites/basic_sword_neutral/basic_sword_neutral.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"f2e78cf5-816c-4bf7-ae90-ac0d30ecf910","path":"sprites/basic_sword_neutral/basic_sword_neutral.yy",},"LayerId":{"name":"48288071-ffea-42ec-bcfd-bd4deb26c25b","path":"sprites/basic_sword_neutral/basic_sword_neutral.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"basic_sword_neutral","path":"sprites/basic_sword_neutral/basic_sword_neutral.yy",},"resourceVersion":"1.0","name":"f2e78cf5-816c-4bf7-ae90-ac0d30ecf910","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"0e69f3cb-a21e-40e1-b398-46e1ca7cb392","path":"sprites/basic_sword_neutral/basic_sword_neutral.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"0e69f3cb-a21e-40e1-b398-46e1ca7cb392","path":"sprites/basic_sword_neutral/basic_sword_neutral.yy",},"LayerId":{"name":"48288071-ffea-42ec-bcfd-bd4deb26c25b","path":"sprites/basic_sword_neutral/basic_sword_neutral.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"basic_sword_neutral","path":"sprites/basic_sword_neutral/basic_sword_neutral.yy",},"resourceVersion":"1.0","name":"0e69f3cb-a21e-40e1-b398-46e1ca7cb392","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"basic_sword_neutral","path":"sprites/basic_sword_neutral/basic_sword_neutral.yy",},
@@ -36,12 +45,15 @@
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
-    "length": 1.0,
+    "length": 4.0,
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"e73f5b5f-eb87-42e4-ba07-d6cfeadaa06b","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"b424b11a-fade-4d90-8776-35720f149bb2","path":"sprites/basic_sword_neutral/basic_sword_neutral.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"2ba2f788-573a-4d28-89dd-7dbd3d5f5228","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"a52b6fd5-9f63-412b-a560-6b6309d42ff1","path":"sprites/basic_sword_neutral/basic_sword_neutral.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"e7317202-d94f-4402-8a36-19029313457c","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f2e78cf5-816c-4bf7-ae90-ac0d30ecf910","path":"sprites/basic_sword_neutral/basic_sword_neutral.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"9daaf2ed-9010-4160-bee7-578215623331","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"0e69f3cb-a21e-40e1-b398-46e1ca7cb392","path":"sprites/basic_sword_neutral/basic_sword_neutral.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,

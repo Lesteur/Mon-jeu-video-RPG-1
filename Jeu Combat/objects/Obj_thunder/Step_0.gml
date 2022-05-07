@@ -8,7 +8,7 @@ if count >= 45 {
 
 if count == 45 {
 	Obj_manager_fight.alarm[1] = 1
-	Obj_manager_fight.alarm[0] = 50
+	Obj_manager_fight.alarm[0] = 70
 }
 
 if count >= 60 {

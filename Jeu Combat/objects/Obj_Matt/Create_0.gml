@@ -12,9 +12,10 @@ PM_Max = 25
 PM = 25
 status = false
 PF = false
+guard = 1
 
 weapon = Obj_staff
-shield = false
+shield = noone
 cc = 0
 
 p_anim = 0
@@ -29,9 +30,14 @@ sprite_fight_special = Matt_fight_special
 sprite_fight_victory = Matt_fight_victory
 sprite_fight_weak = Matt_fight_weak
 
-
-boost = [[1, 0], [1, 0]]
-guard = 1
+//boost = [[1, 0], [1, 0]]
+boost = ds_map_create()
+boost[? "attack"] = [1, 0]
+boost[? "magic_attack"] = [1, 0]
+boost[? "defense"] = [1, 0]
+boost[? "magic_defense"] = [1, 0]
+boost[? "agility"] = [1, 0]
+boost[? "accuracy"] = [1, 0]
 
 global.player_turn = 0
 animation = 0

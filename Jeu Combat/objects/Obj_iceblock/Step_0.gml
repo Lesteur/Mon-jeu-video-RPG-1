@@ -15,6 +15,6 @@ if image_index >= image_number - 1 {
 		o += 360/8
 	}
 	Obj_manager_fight.alarm[1] = 1
-	Obj_manager_fight.alarm[0] = 50
+	Obj_manager_fight.alarm[0] = 70
 	instance_destroy()
 }

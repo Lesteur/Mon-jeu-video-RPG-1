@@ -1,6 +1,3 @@
-//Obj_heros.animation = 0
-//Obj_monstre.animation = 0
-
 if lanceur.status != "KO" {
 	lanceur.animation = 0
 }
@@ -14,6 +11,7 @@ for (var i = 0; i < array_length(cible); i++) {
 act = false
 choice = 0
 choice_enemy = 0
+choice_exam = 0
 compte = 0
 compte_i = 0
 compte_flash = 0
@@ -30,6 +28,7 @@ choice_skill = 0
 impact = false
 type_attack = false
 all_target = noone
+color_attack = [0]
 
 menu_i = 0
 menu = ["action"]
@@ -77,7 +76,6 @@ if issue_battle == 0 {
 			for (var i = 0; i < array_length(global.team); ++i;) {
 				global.team[i].guard = 1
 			}
-			
 			message_i = irandom_range(1, array_length(message_routine)-1)
 			global.player_turn = 0
 			turn_team = global.team

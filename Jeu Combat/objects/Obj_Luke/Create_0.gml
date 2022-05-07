@@ -12,6 +12,7 @@ PM_Max = 15
 PM = PM_Max
 status = false
 PF = false
+guard = 1
 
 weapon = Obj_sword
 shield = Obj_shield
@@ -30,8 +31,14 @@ sprite_fight_victory = Luke_fight_victory
 sprite_fight_weak = Luke_fight_weak
 
 
-boost = [[1, 0], [1, 0]]
-guard = 1
+//boost = [[1, 0], [1, 0]]
+boost = ds_map_create()
+boost[? "attack"] = [1, 0]
+boost[? "magic_attack"] = [1, 0]
+boost[? "defense"] = [1, 0]
+boost[? "magic_defense"] = [1, 0]
+boost[? "agility"] = [1, 0]
+boost[? "accuracy"] = [1, 0]
 
 global.player_turn = 0
 animation = 0

@@ -12,7 +12,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "snd_strong_attack1.wav",
-  "duration": 1.319433,
+  "duration": 0.953379,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",

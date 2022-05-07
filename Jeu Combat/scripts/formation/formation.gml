@@ -1,5 +1,6 @@
 function formation(){
 	choice_form = select_choice(choice_form, 1, false)
+	cursor_i += 1/3
 	
 	if keyboard_check_pressed(vk_space) && menu[menu_i] == "formation" {
 		if ally_form == noone {
@@ -24,13 +25,13 @@ function formation(){
 	if keyboard_check_pressed(vk_enter) {
 		if menu[menu_i] == "formation" {
 			if global.team != team_form {
-			menu_i ++
-			menu[menu_i] = "formation_c"
-			audio_play_sound(snd_select, 7, false)
+				menu_i ++
+				menu[menu_i] = "formation_c"
+				audio_play_sound(snd_select, 7, false)
 			} else {
-			menu_i --
-			message_quick_t = 0
-			ally_form = noone
+				menu_i --
+				message_quick_t = 0
+				ally_form = noone
 			}
 		} else {
 			dispo_team()

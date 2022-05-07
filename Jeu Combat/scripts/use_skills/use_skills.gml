@@ -4,19 +4,17 @@ function use_skills(player, skill){
 		if skill[4] == 1 && menu[menu_i] == "skills" {
 			menu_i ++
 			menu[menu_i] = "skills_target"
+			team_target = team_enemy_a
 			if skill[7] == "heal" {
 				team_target = team_a
-			} else {
-				team_target = team_enemy_a
 			}
 			audio_play_sound(snd_select, 4, false)
 		} else if skill[4] == 2 && menu[menu_i] == "skills" {
 			menu_i ++
 			menu[menu_i] = "skills_target"
+			team_target = team_enemy_a
 			if skill[7] == "heal" {
 				team_target = team_a
-			} else {
-				team_target = team_enemy_a
 			}
 			all_target = false
 			audio_play_sound(snd_select, 4, false)

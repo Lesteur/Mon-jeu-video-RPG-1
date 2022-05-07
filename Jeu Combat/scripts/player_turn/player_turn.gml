@@ -26,15 +26,20 @@ if player.status == "KO" and !act {
 				formation()
 				break
 		}
+		
+		if keyboard_check_pressed(ord("B")) && (menu[menu_i] == "action") {
+			menu_i ++
+			menu[menu_i] = "exam"
+		}
 	
 		if keyboard_check_pressed(vk_space) {
 			message_quick_t = 0
 			switch(choice) {
 				case 0:
-					if (menu[menu_i] == "target") {
+					if menu[menu_i] == "target" {
 						Atk_normale(player, team_target[target], player.Basic_attack)
 						message_monitor = name + " attaque !"
-					} else {
+					} else if menu[menu_i] == "action" {
 						team_target = team_enemy_a
 						menu_i ++
 						menu[menu_i] = "target"
@@ -42,7 +47,7 @@ if player.status == "KO" and !act {
 					audio_play_sound(snd_select, 4, false)
 					break
 				case 1:
-					if (menu[menu_i] == "action") {
+					if menu[menu_i] == "action" {
 						menu_i ++
 						menu[menu_i] = "skills"
 						audio_play_sound(snd_select, 4, false)
@@ -90,22 +95,33 @@ if player.status == "KO" and !act {
 					audio_play_sound(snd_false, 4, false)
 					break
 			}
+			if menu[menu_i] == "exam" {
+				menu_i ++
+				menu[menu_i] = "exam_enemy"
+			}
 	
+		}
+		
+		if menu[menu_i] == "exam" && !act {
+			choice_exam = select_choice(choice_exam, array_length(team_enemy_a)-1, false)
+			cursor_i += 1/3
+			message_monitor = team_enemy_a[choice_exam].Name
 		}
 	
 		if (menu[menu_i] == "target" || menu[menu_i] == "skills_target" || menu[menu_i] == "objects_target") && !act {
 			select_charac(team_target)
-			flashAlpha = 0.375*sin(compte_flash)+0.625
-			compte_flash += 0.1
+			//flashAlpha = 0.375*sin(compte_flash)+0.625
+			//compte_flash += 0.1
+			cursor_i += 1/3
 			if all_target != true {
 				message_monitor = team_target[target].Name
 			} else {
 				message_monitor = "Tous sélectionnés"
 			}
-		} else {
-			compte_flash = 0
-			flashAlpha = 0
-		}
+		}// else {
+		//	compte_flash = 0
+		//	flashAlpha = 0
+		//}
 		
 		if  keyboard_check_pressed(vk_enter) && array_length(team_target) > 1 {
 			if all_target == false {
