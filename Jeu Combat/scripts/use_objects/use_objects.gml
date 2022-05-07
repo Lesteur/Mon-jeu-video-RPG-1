@@ -15,17 +15,8 @@ function use_objects(player, object){
 		
 		var array = team_target[target].Weakness
 		var w = check_weakness(array, "object", object[0])
-		//for (var i = 0; i < array_length(team_target[target].Weakness); i++) {
-		//	var array = team_target[target].Weakness
-		//	if array[i][0] == "object" {
-		//		if array[i][1] == object[0] {
-		//			w = i
-		//		}
-		//	}
-		//}
 		
 		if w != noone {
-			//persistent_damage(team_target[target], array[w][3])
 			script_execute(array[w][2], team_target[target], array[w][3])
 		} else {
 			script_execute(object[2], player, team_target[target], object)
