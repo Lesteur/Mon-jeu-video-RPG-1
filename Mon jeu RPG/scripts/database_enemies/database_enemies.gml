@@ -1,0 +1,27 @@
+global.germicroque =
+{
+	name : "Germicroque",
+	PV_Max : 500,
+	PV : 500,
+	attack : 7,
+	magic_attack : 3,
+	defense : 5,
+	magic_defense : 5,
+	accuracy : 12,
+	agility : 4,
+	element : false,
+	type_attack : "bite",
+	effect : effect_bite,
+	sprite_fight_neutral : germicroque_neutral,
+	sprite_fight_hurt : germicroque_hurt,
+	sprite_fight_attack : germicroque_fight,
+	skills : [["Croc carnivore", 0, Atk_normale, 15, 1, 1, "Germicroque attaque !", "bite", false],
+			  ["Photosynthèse", 0, PV_recup, 20, 0, 0, "Germicroque se soigne !", "heal", false],
+			  ["Esprit de bête", 0, Increase, [["attack", 1, 3]], 0, 0, "Germicroque se renforce !", "increase", false]],
+	//weakness : [["type", "slash", "bonus_dmg", 0.5], ["element", "fire", "bonus_dmg", 1], ["object", "Elixir", persistent_damage, 25]],
+	weakness : [["type", "slash", "bonus_dmg", 0.5], ["element", "fire", "bonus_dmg", 1], ["element", "heal", "bonus_dmg", 2], ["object", "Potion soin", persistent_damage, 25]],
+	strength : [["element", "ice", "malus_dmg", 0.6], ["element", "thunder", "malus_dmg", 0.6]],
+	gold : 20,
+	experience : 10,
+	booty : [ ["Potion de soin", 2], [ "Pierre de ténèbres", 1], ["Vivifeuille", 1] ]
+}
