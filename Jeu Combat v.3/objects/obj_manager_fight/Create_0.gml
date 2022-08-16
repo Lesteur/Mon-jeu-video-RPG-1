@@ -67,4 +67,4 @@ function get_icon(icon) {
 dispo_team()
 particules()
 
-audio_play_sound(mus_rude_buster, 10, true)
+//audio_play_sound(mus_rude_buster, 10, true)

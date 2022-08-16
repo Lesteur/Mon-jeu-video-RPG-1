@@ -33,9 +33,11 @@ function draw_exam(object){
 		var text2 = ""
 		var color = c_white
 		if object.weakness[i][0] != "object" {
-			icon = get_icon(object.weakness[i][1])
+			var icon = get_icon(object.weakness[i][1])
+			var spr = icons
 		} else {
-			var icon = 20
+			var icon = variable_global_get(object.weakness[i][1]).graphisme_1
+			var spr = sprite_objects
 		}
 		switch (object.weakness[i][2]) {
 			case "bonus_dmg":
@@ -51,14 +53,16 @@ function draw_exam(object){
 		}
 		
 		if i < 3 {
-			draw_sprite_ext(icons, icon, 414, 142 + i*30, 2, 2, 0, c_white, 1)
-			text_sha(448, 172 + i*30, text1, color)
-			text_sha(448+string_width(text1), 172 + i*30, text2)
+			var x_p = 0
+			var a = 0
 		} else {
-			draw_sprite_ext(icons, icon, 614, 142 + (i-3)*30, 2, 2, 0, c_white, 1)
-			text_sha(648, 172 + (i-3)*30, text1, color)
-			text_sha(648+string_width(text1), 172 + (i-3)*30, text2)
+			var x_p = 200
+			var a = 3
 		}
+		
+		draw_sprite_ext(spr, icon, 414 + x_p, 142 + (i-a)*30, 2, 2, 0, c_white, 1)
+		text_sha(448 + x_p, 172 + (i-a)*30, text1, color)
+		text_sha(448 + x_p + string_width(text1), 172 + (i-a)*30, text2)
 	}
 	
 	text_sha(414, 266, "Résistances :")
@@ -83,14 +87,18 @@ function draw_exam(object){
 		}
 		
 		if i < 3 {
-			draw_sprite_ext(icons, icon, 414, 272 + i*30, 2, 2, 0, c_white, 1)
-			text_sha(448, 302 + i*30, text1, color)
-			text_sha(448+string_width(text1), 302 + i*30, text2)
+			var x_p = 0
+			var a = 0
 		} else {
-			draw_sprite_ext(icons, icon, 614, 272 + (i-3)*30, 2, 2, 0, c_white, 1)
-			text_sha(648, 302 + (i-3)*30, text1, color)
-			text_sha(648+string_width(text1), 302 + (i-3)*30, text2)
+			var x_p = 200
+			var a = 3
 		}
+		
+		draw_sprite_ext(icons, icon, 414 + x_p, 272 + (i-a)*30, 2, 2, 0, c_white, 1)
+		text_sha(448 + x_p, 302 + (i-a)*30, text1, color)
+		text_sha(448 + x_p + string_width(text1), 302 + (i-a)*30, text2)
+		
+		
 	}
 	
 	text_sha(414, 256+10+130, "Butin :")

@@ -77,8 +77,4 @@ function draw_formation(){
 		draw_set_color(c_white)
 		draw_text_ext(226, 351, "La formation ne sera plus changée pour 2 tours. Confirmer ?", 45, 348)
 	}
-	
-	draw_text(50, 50, string(team_form))
-	draw_text(50, 70, string(global.team))
-	draw_text(50, 90, string(menu[menu_i]))
 }

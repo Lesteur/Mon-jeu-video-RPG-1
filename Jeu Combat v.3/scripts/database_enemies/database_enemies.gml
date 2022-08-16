@@ -20,7 +20,7 @@ global.germicroque = {
 	skills_c : [[PV_inferior, [0.85]], [stats_inferior, ["attack", 0]]],
 	choice_enemy_skill : choice_enemy_conditions,
 	choice_enemy_target : choice_target_random,
-	weakness : [["type", "slash", "bonus_dmg", 0.5], ["element", "fire", "bonus_dmg", 1], ["element", "heal", "bonus_dmg", 2], ["object", "Potion de soin", persistent_damage, 100]],
+	weakness : [["type", "slash", "bonus_dmg", 0.5], ["element", "fire", "bonus_dmg", 1], ["element", "heal", "bonus_dmg", 2], ["object", "potion_heal_1", persistent_damage, 100]],
 	strength : [["element", "ice", "malus_dmg", 0.33], ["element", "thunder", "malus_dmg", 1]],
 	gold : 20,
 	experience : 10,
