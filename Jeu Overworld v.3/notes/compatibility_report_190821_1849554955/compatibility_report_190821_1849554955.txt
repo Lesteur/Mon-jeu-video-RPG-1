@@ -1,0 +1,30 @@
+Conversion du script GML : ${project_dir}\scripts\Joueur_Overworld\Joueur_Overworld.gml
+Chaîne convertie - ligne 9 : 'D' -> "D"
+
+Conversion du script GML : ${project_dir}\scripts\Interaction\Interaction.gml
+Erreur : La variable 'message' a le même nom qu'une (fonction, constante ou variable) intégrée. Elle doit être renommée pour fonctionner correctement.
+
+Conversion du script GML : ${project_dir}\scripts\Text\Text.gml
+Chaîne convertie - ligne 61 : "\" -> "\\"
+
+La police AprilSans a été convertie en famille de polices AprilSans (Regular).
+La texture de police GameMaker Studio 1 a été sauvegardée à ${project_dir}\fonts\AprilSans\AprilSans.gms1.png
+Conversion du script GML : ${project_dir}\objects\Panneau_1\Draw_64.gml
+Erreur : La variable 'message' a le même nom qu'une (fonction, constante ou variable) intégrée. Elle doit être renommée pour fonctionner correctement.
+
+Conversion du script GML : ${project_dir}\objects\Panneau_2\Draw_64.gml
+Erreur : La variable 'message' a le même nom qu'une (fonction, constante ou variable) intégrée. Elle doit être renommée pour fonctionner correctement.
+
+Conversion du script GML : ${project_dir}\objects\Arbre\Create_0.gml
+Erreur : La variable 'message' a le même nom qu'une (fonction, constante ou variable) intégrée. Elle doit être renommée pour fonctionner correctement.
+
+Conversion du script GML : ${project_dir}\objects\Arbre\Draw_64.gml
+Erreur : La variable 'message' a le même nom qu'une (fonction, constante ou variable) intégrée. Elle doit être renommée pour fonctionner correctement.
+
+Le script d'installation de Windows NSIS revient aux valeurs par défaut en raison des modifications apportées à GameMaker Studio 2
+Audiogroupe manquant pour le son : 'Voix' - le groupe audio revient aux valeurs par défaut
+Audiogroupe manquant pour le son : 'mus_forest01' - le groupe audio revient aux valeurs par défaut
+Audiogroupe manquant pour le son : 'mus_forest02' - le groupe audio revient aux valeurs par défaut
+Audiogroupe manquant pour le son : 'snd_levelup' - le groupe audio revient aux valeurs par défaut
+Audiogroupe manquant pour le son : 'snd_item' - le groupe audio revient aux valeurs par défaut
+Vitesse de jeu fixée à 30
