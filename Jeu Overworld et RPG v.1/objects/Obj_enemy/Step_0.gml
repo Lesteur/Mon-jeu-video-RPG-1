@@ -1,0 +1,1 @@
+fight_animation_enemy()
