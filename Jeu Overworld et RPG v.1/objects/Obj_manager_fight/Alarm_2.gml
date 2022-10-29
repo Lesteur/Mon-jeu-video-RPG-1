@@ -1,7 +1,7 @@
 for (var i = 0; i < array_length(cible); i++) {
 
 	if cible[i].PV <= 0 {
-		lower_boosts([cible[i]], 10)
+		lower_boosts([cible[i]], 100)
 		if cible[i].type == "Enemy" {
 			var p = part_system_create()
 			part_system_depth(p, cible[i].depth - 5)

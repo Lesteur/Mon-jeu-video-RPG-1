@@ -143,6 +143,7 @@ function Atk_bow(lance, cibl, comp){
 		var direct = point_direction(lanceur.x, lanceur.y, cible[i].x, cible[i].y)
 		var len = point_distance(lanceur.x, lanceur.y, cible[i].x, cible[i].y)
 		var inst = instance_create_layer(lanceur.x, lanceur.y, "Instances_1", Obj_arrow)
+		inst.player = lanceur
 		inst.depth = Obj_bow.depth - 1
 		inst.image_index = lanceur.equipment[? "hand_object"][0].graphisme
 		inst.direct = direct
@@ -194,7 +195,7 @@ function Atk_magique(lance, cibl, comp){
 	cible = cibl
 	lanceur.animation = 4
 	type_attack = "attack_magic"
-	comp.sound = snd_cast_spell
+	audio_play_sound(snd_cast_spell, 6, false)
 	
 	prepare_action(comp)
 	damage_calcul(comp, "magic")

@@ -1,8 +1,5 @@
 // Ajustement du texte
 
-draw_text(10, 10, string(historique_actions))
-draw_text(10, 20, string(strategy_points))
-
 global.t ++
 draw_set_halign(fa_left)
 draw_set_valign(fa_bottom)

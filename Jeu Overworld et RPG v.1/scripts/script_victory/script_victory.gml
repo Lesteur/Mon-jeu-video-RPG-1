@@ -16,6 +16,7 @@ function script_victory() {
 	grade = fight_result(strategy, turn_battle, total_damage, lvl)
 	EXP_won = round(EXP_won*EXP_mult(grade))
 	add_loot()
+	add_inventory(loot)
 	for (var i = 0; i < array_length(global.team); ++i) {
 		global.team[i].animation = 6
 		global.team[i].image_index = 0

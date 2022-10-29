@@ -17,7 +17,7 @@
   "soundFile": "snd_heal.wav",
   "duration": 0.712971,
   "parent": {
-    "name": "Sons",
-    "path": "folders/Sons.yy",
+    "name": "sound_effects",
+    "path": "folders/Sons/sound_effects.yy",
   },
 }

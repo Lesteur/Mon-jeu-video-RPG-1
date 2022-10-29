@@ -5,7 +5,7 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Scripts",
-    "path": "folders/Scripts.yy",
+    "name": "Scripts_overworld",
+    "path": "folders/Scripts/Scripts_overworld.yy",
   },
 }

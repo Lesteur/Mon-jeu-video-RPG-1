@@ -17,7 +17,7 @@
   "soundFile": "snd_bow_neutral.mp3",
   "duration": 0.653061,
   "parent": {
-    "name": "Sons",
-    "path": "folders/Sons.yy",
+    "name": "sound_effects",
+    "path": "folders/Sons/sound_effects.yy",
   },
 }

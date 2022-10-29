@@ -1,28 +1,28 @@
 image_alpha = 1
-x = Obj_Luke.x
-y = Obj_Luke.y
+x = player.x
+y = player.y
 
-switch(Obj_Luke.animation) {
+switch(player.animation) {
 	case 0:
 		cc = 0
 		p_anim = 0
 		image_index = 0
 		image_speed = 0
-		depth = Obj_Luke.depth - 1
-		if Obj_Luke.PV >= 0.25*Obj_Luke.PV_Max {
-			x = Obj_Luke.x
-			y = Obj_Luke.y
+		depth = player.depth - 1
+		if player.PV >= 0.25*player.PV_Max {
+			x = player.x
+			y = player.y
 		} else {
-			x = Obj_Luke.x - 2
-			y = Obj_Luke.y + 8
+			x = player.x - 2
+			y = player.y + 8
 		}
 		break
 	case 1:
-		x = Obj_Luke.x - 5
-		y = Obj_Luke.y + 1
+		x = player.x - 5
+		y = player.y + 1
 		break
 	case 2:
-		if Obj_Luke.guard == 1 {
+		if player.guard == 1 {
 			image_alpha = 0
 		} else {
 			image_alpha = 1
@@ -37,7 +37,7 @@ switch(Obj_Luke.animation) {
 		break
 }
 
-if Obj_Luke.guard != 1 {
-	x = Obj_Luke.x + 7
-	y = Obj_Luke.y
+if player.guard != 1 {
+	x = player.x + 7
+	y = player.y
 }

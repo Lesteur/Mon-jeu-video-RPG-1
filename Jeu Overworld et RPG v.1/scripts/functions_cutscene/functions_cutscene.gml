@@ -37,8 +37,13 @@ function cutscene_play_sound(sound, priority, loops) {
 }
 
 function cutscene_destroy_instance(obj) {
-	with (obj) {
-		instance_destroy()
+	if !is_array(obj) {
+		obj = [obj]
+	}
+	for (var i = 0; i < array_length(obj); i++) {
+		with (obj[i]) {
+			instance_destroy()
+		}
 	}
 	cutscene_end_action()
 }
@@ -49,11 +54,19 @@ function cutscene_destroy_nearest(pos, obj) {
 }
 
 function cutscene_change_sprite(obj, sprite, spd, image) {
-	with (obj) {
-		sprite_index = sprite
-		image_speed = spd
-		if spd == 0 {
-			image_index = image
+	if !is_array(obj) {
+		obj = [obj]
+	}
+	for (var i = 0; i < array_length(obj); i++) {
+		with (obj[i]) {
+			if is_string(sprite) {
+				sprite = variable_instance_get(obj[i], sprite)
+			}
+			sprite_index = sprite
+			image_speed = spd
+			if spd == 0 {
+				image_index = image
+			}
 		}
 	}
 	cutscene_end_action()
@@ -86,6 +99,11 @@ function cutscene_change_variable(obj, variable, value) {
 	cutscene_end_action()
 }
 
+function cutscene_change_global_variable(variable, value) {
+	variable_global_set(variable, value)
+	cutscene_end_action()
+}
+
 function cutscene_add(variable, t_event) {
 	new_scene_info = scene_info
 	var v = variable_instance_get(Obj_cutscene, variable)
@@ -114,7 +132,7 @@ function cutscene_move_character(obj, pos, relative, spd) {
 	
 	with(obj) {
 		
-		if point_direction(x, y, xx, yy) >= spd {
+		if point_distance(x, y, xx, yy) >= spd {
 			var dir = point_direction(x, y, xx, yy)
 			var ldirx = lengthdir_x(spd, dir)
 			var ldiry = lengthdir_y(spd, dir)
@@ -134,10 +152,78 @@ function cutscene_move_character(obj, pos, relative, spd) {
 	}
 }
 
+function cutscene_remove_allies() {
+	
+	if x_dest == -1 {
+			x_dest = global.player.x
+			y_dest = global.player.y
+	}
+	
+	var xx = x_dest
+	var yy = y_dest
+	
+	var team_ally = []
+	array_copy(team_ally, 0, global.team_player, 1, array_length(global.team_player))
+	players = []
+	array_resize(players, array_length(team_ally))
+	for (var i = 0; i < array_length(team_ally); i++) {
+		with(team_ally[i]) {
+		
+			if point_distance(x, y, xx, yy) >= 2 {
+				var dir = point_direction(x, y, xx, yy)
+				var ldirx = lengthdir_x(2, dir)
+				var ldiry = lengthdir_y(2, dir)
+				
+				if abs(ldirx) > abs(ldiry) {
+					if ldirx > 0 {
+						sprite_index = sprite_walk_right
+					} else {
+						sprite_index = sprite_walk_left
+					}
+				} else {
+					if ldiry > 0 {
+						sprite_index = sprite_walk_bottom
+					} else {
+						sprite_index = sprite_walk_top
+					}
+				}
+				image_speed = 0.15
+		
+				x += ldirx
+				y += ldiry
+			} else {
+				x = xx
+				y = yy
+				visible = false
+			
+				with(other) {
+					players[i] = 1
+					x_dest = -1
+					y_dest = -1
+					if !research_array(players, 0) {
+						cutscene_end_action()
+					}
+				}
+			}
+		}
+	}
+	
+}
+
+function cutscene_reset_allies() {
+	for (var i = 0; i < array_length(global.team_player); i++) {
+		var player = global.team_player[i]
+		player.x = global.player.x
+		player.y = global.player.y
+		player.visible = true
+		ds_queue_clear(player.queue)
+	}
+	cutscene_end_action()
+}
+
 function create_cutscene(t_scene) {
 	var inst = instance_create_layer(0, 0, "Instances_1", Obj_cutscene)
 	with (inst) {
-		//scene_info = t_scene
 		array_copy(scene_info, 1, t_scene, 0, array_length(t_scene))
 	}
 }

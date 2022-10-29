@@ -1,5 +1,6 @@
 function player_overworld() {
-	var moveH, moveV, key_right, key_left, key_up, key_down, key_D, hsp, vsp
+	var moveH, moveV, move, key_right, key_left, key_up, key_down, key_D, hsp, vsp
+	var move = 0
 
 	// Récupération touches clavier
 
@@ -21,10 +22,12 @@ function player_overworld() {
 
 	if (key_right && !place_meeting( x + movesp, y, Obj_collision)) || (key_left && !place_meeting( x - movesp, y, Obj_collision)) {
 		x += hsp
+		move = 1
 	}
 
 	if (key_up && !place_meeting( x, y - movesp, Obj_collision)) || (key_down && !place_meeting( x, y + movesp, Obj_collision)) {
 		y += vsp
+		move = 1
 	}
 
 	if key_D {
@@ -35,7 +38,7 @@ function player_overworld() {
 
 	// Animations du joueur
 
-	if (hsp == 0) && (vsp == 0) {
+	if ((hsp == 0) && (vsp == 0)) || move == 0 {
 		image_speed = 0
 		image_index = 0
 	} else {
@@ -70,6 +73,13 @@ function player_overworld() {
 	}
 	if (hsp < 0) && (sprite_index == sprite_walk_right) {
 		sprite_index = sprite_walk_left
+	}
+	
+	var list = [sprite_walk_bottom, sprite_walk_top, sprite_walk_left, sprite_walk_right]
+	var sp = research_array(list, sprite_index)
+	
+	if move == 1 {
+		ds_queue_enqueue(queue, [x, y, sp])
 	}
 
 	if keyboard_check_pressed(ord("S")) {

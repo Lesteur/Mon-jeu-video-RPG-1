@@ -1,10 +1,7 @@
 // Stats du personnage
 
-hsp = 0
-vsp = 0
 movesp = 2
 
-sprite_walk_bottom = Luke_marche_bas
-sprite_walk_top = Luke_marche_haut
-sprite_walk_left = Luke_marche_gauche
-sprite_walk_right = Luke_marche_droite
+queue = ds_queue_create()
+
+global.inventory = [ global.potion_heal_1, 2, global.potion_energy_1, 3, global.mushroom_poison, 1, global.stone_burn, 1, global.star_freeze, 2, global.stone_volt, 1 ]

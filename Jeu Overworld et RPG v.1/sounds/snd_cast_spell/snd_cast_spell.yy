@@ -17,7 +17,7 @@
   "soundFile": "snd_cast_spell.wav",
   "duration": 1.319433,
   "parent": {
-    "name": "Sons",
-    "path": "folders/Sons.yy",
+    "name": "sound_effects",
+    "path": "folders/Sons/sound_effects.yy",
   },
 }

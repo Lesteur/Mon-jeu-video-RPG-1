@@ -43,12 +43,8 @@ lanceur = false //contient l'objet lanceur
 type_attack = false //genre de l'attaque
 color_attack = [0]
 
-global.team = [Obj_Luke, Obj_Matt, Obj_Arthur] //Equipe des héros
-
-//global.team_enemy = [Obj_enemy_1, Obj_enemy_2]
-global.team_enemy = [global.germicroque, global.germicroque] //Equipe des monstres
 create_team()
-
+dispo_team()
 team_a = global.team //Equipe héros excluant les KO
 team_enemy_a = global.team_enemy //Equipe monstres excluant les KO
 
@@ -78,6 +74,6 @@ function get_icon(icon) {
 	return global.icon[? icon]
 }
 
-dispo_team()
+
 
 //audio_play_sound(mus_rude_buster, 10, true)

@@ -1,4 +1,4 @@
-if Obj_Arthur.image_index == 6 {
+if player.image_index == 6 {
 	count = 1
 	image_angle = direct
 }

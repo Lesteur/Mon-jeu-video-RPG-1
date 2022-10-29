@@ -17,7 +17,7 @@
   "soundFile": "snd_increase_power.wav",
   "duration": 1.35,
   "parent": {
-    "name": "Sons",
-    "path": "folders/Sons.yy",
+    "name": "sound_effects",
+    "path": "folders/Sons/sound_effects.yy",
   },
 }

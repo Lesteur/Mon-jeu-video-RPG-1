@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "Obj_player",
   "spriteId": {
-    "name": "Luke_marche_bas",
-    "path": "sprites/Luke_marche_bas/Luke_marche_bas.yy",
+    "name": "Luke_walk_bottom",
+    "path": "sprites/Luke_walk_bottom/Luke_walk_bottom.yy",
   },
   "solid": false,
   "visible": true,
@@ -29,12 +29,11 @@
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":2,"eventType":3,"collisionObjectId":null,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":2,"collisionObjectId":null,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":1,"eventType":2,"collisionObjectId":null,},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objets",
-    "path": "folders/Objets.yy",
+    "name": "Objects_overworld",
+    "path": "folders/Objets/Objects_overworld.yy",
   },
 }

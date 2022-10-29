@@ -16,7 +16,7 @@ global.germicroque = {
 	skills : [crea_skill("Photosynthèse", 0, PV_recup, 15, 0, 0, "Germicroque se soigne !", "heal", false, 0, effect_heal_pv , false),
 			  crea_skill("Esprit de bête", 0, Increase, ["attack", 1, 3], 0, 0, "Germicroque se renforce !", "increase", false, 0, effect_increase_attack, false),
 			  crea_skill("Croc carnivore", 0, Atk_normale, 15, 1, 1, "Germicroque attaque !", "bite", false, 0, effect_bite, snd_attack)],
-	skills_c : [[PV_inferior, [0.85]], [stats_inferior, ["attack", 0]]],
+	skills_c : [[PV_inferior, [0.30]], [stats_inferior, ["attack", 0]]],
 	choice_enemy_skill : choice_enemy_conditions,
 	choice_enemy_target : choice_target_random,
 	weakness : [["type", "slash", "bonus_dmg", 0.5], ["element", "fire", "bonus_dmg", 1], ["element", "ice", "malus_dmg", 0.33], ["element", "thunder", "malus_dmg", 1], ["element", "water", "absorb_dmg", 1], ["alteration", "burn", "+", 0.5], ["alteration", "curse", "-", 0]],

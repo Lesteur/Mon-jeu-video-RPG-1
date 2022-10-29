@@ -9,7 +9,6 @@ function draw_text_special(text, x, y, w, z) {
 
 	var amplitude = 2.5
 	var freq = 2
-	var ec = 0
 	var charSize = 1
 
 	repeat(string_length(text)) {

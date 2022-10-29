@@ -21,11 +21,7 @@ function select_charac(team) {
 	}
 }
 
-function select_choice(variable, number, direction, jump) {
-	
-	if jump == undefined {
-		jump = 1
-	}
+function select_choice(variable, number, direction, jump = 1) {
 	
 	if direction {
 		var dir_1 = vk_left
@@ -134,7 +130,11 @@ function research_array_3d(array, array_elements, increm = 1) {
 }
 
 function courbe_exp(n) {
-	return power(n, 3)*2
+	return power(n, 3)*10
+}
+
+function courbe_stat(a, b, c, x) {
+	return (a*power(x, 2) + b*x + c)
 }
 
 function def_exp(player, sound = false){

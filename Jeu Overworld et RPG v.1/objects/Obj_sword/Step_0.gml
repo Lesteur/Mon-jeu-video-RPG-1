@@ -1,14 +1,14 @@
 image_alpha = 1
 image_speed = 1
 
-switch(Obj_Luke.animation) {
+switch(player.animation) {
 	case 0:
 		cc = 0
-		x = Obj_Luke.x
-		y = Obj_Luke.y
-		depth = Obj_Luke.depth + 1
+		x = player.x
+		y = player.y
+		depth = player.depth + 1
 		image_index = 0
-		if Obj_Luke.PV >= 0.25*Obj_Luke.PV_Max {
+		if player.PV >= 0.25*player.PV_Max {
 			sprite_index = sprite_fight_neutral
 		} else {
 			sprite_index = sprite_fight_weak
@@ -22,7 +22,7 @@ switch(Obj_Luke.animation) {
 		}
 		break
 	case 2:
-		if Obj_Luke.guard == 1 {
+		if player.guard == 1 {
 			image_alpha = 0
 		} else {
 			image_alpha = 1
@@ -36,7 +36,7 @@ switch(Obj_Luke.animation) {
 		break
 	case 4:
 		image_speed = 0
-		depth = Obj_Luke.depth - 1
+		depth = player.depth - 1
 		sprite_index = sprite_fight_special
 		if (image_index >= image_number - 1) {
 			image_index = image_number - 1
@@ -45,7 +45,7 @@ switch(Obj_Luke.animation) {
 		break
 }
 
-if Obj_Luke.guard != 1 {
+if player.guard != 1 {
 	sprite_index = sprite_fight_neutral
-	x = Obj_Luke.x - 2
+	x = player.x - 2
 }

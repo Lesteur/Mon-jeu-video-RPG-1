@@ -17,7 +17,7 @@
   "soundFile": "snd_level_up.wav",
   "duration": 1.02517,
   "parent": {
-    "name": "Sons",
-    "path": "folders/Sons.yy",
+    "name": "sound_effects",
+    "path": "folders/Sons/sound_effects.yy",
   },
 }

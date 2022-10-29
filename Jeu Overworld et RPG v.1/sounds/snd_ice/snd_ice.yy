@@ -17,7 +17,7 @@
   "soundFile": "snd_ice.ogg",
   "duration": 1.269833,
   "parent": {
-    "name": "Sons",
-    "path": "folders/Sons.yy",
+    "name": "sound_effects",
+    "path": "folders/Sons/sound_effects.yy",
   },
 }

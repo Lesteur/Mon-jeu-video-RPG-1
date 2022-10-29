@@ -1,6 +1,9 @@
 function dispo_team() {
 	for (var i = 0; i<array_length(global.team); i++) {
 		var char = global.team[i]
+		if !instance_exists(char) {
+			var char = instance_create_layer(0, 0, "Instances_1", char)
+		}
 		char.x = 100 - i*15
 		char.y = 80 + i*20
 		char.depth = 40 - i*10
@@ -185,6 +188,19 @@ function add_loot() {
 		}
 	}
 }
+
+function add_inventory(add_boot) {
+	for (var i = 0; i < array_length(add_boot); i+= 2) {
+			var object = add_boot[i]
+			var ind = research_array(global.inventory, object)
+			if ind != noone {
+				global.inventory[ind+1] += add_boot[i+1]
+			} else {
+				array_insert(global.inventory, 0, object)
+				array_insert(global.inventory, 1, add_boot[i+1])
+			}
+	}
+}
 	
 function fight_result(strategy, turn, damage, level) {
 	var sc = strategy
@@ -219,4 +235,18 @@ function EXP_mult(grade) {
 		return 1.2
 	}
 	return 1
+}
+
+function recup_data_fight() {
+	for (var i = 0; i < array_length(global.team); i++) {
+		var char = global.team[i]
+		var j = char.Num
+		global.characters[j].PV = char.PV
+		global.characters[j].PV_Max = char.PV_Max
+		global.characters[j].PM = char.PM
+		global.characters[j].PM_Max = char.PM_Max
+		global.characters[j].Niveau = char.Niveau
+		global.characters[j].EXP = char.EXP
+		global.characters[j].EXP_restant = char.EXP_restant
+	}
 }

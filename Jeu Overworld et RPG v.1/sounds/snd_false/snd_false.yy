@@ -17,7 +17,7 @@
   "soundFile": "snd_false.wav",
   "duration": 1.714286,
   "parent": {
-    "name": "Sons",
-    "path": "folders/Sons.yy",
+    "name": "sound_effects",
+    "path": "folders/Sons/sound_effects.yy",
   },
 }
