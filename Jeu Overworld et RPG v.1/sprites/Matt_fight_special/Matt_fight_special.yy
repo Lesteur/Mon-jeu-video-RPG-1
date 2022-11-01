@@ -92,6 +92,6 @@
   "nineSlice": null,
   "parent": {
     "name": "Matt_fight",
-    "path": "folders/Sprites/Matt_fight.yy",
+    "path": "folders/Sprites/Sprites_fight/Matt_fight.yy",
   },
 }

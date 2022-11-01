@@ -74,6 +74,4 @@ function get_icon(icon) {
 	return global.icon[? icon]
 }
 
-
-
 //audio_play_sound(mus_rude_buster, 10, true)

@@ -1,4 +1,3 @@
-set_depth()
 interact_overworld()
 
 if (interact == 1) {
@@ -10,6 +9,7 @@ if (interact == 1) {
 	} else {
 		create_cutscene(t_scene_info)
 		compteur ++
+		global.room_data[? Zone_true_1][0] = compteur
 		if compteur == 1 {
 			message = [[global.loc[? "Panneau_1_7"]], [global.loc[? "Panneau_1_8"]]]
 		} else {

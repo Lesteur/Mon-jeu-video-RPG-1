@@ -146,7 +146,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Sprites.yy",
+    "name": "background_forest",
+    "path": "folders/Sprites/Backgrounds/background_forest.yy",
   },
 }

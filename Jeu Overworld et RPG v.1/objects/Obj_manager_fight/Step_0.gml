@@ -19,8 +19,7 @@ if issue_battle == 1 {
 		}
 		if EXP_won == 0 && defil && !quit {
 			quit = true
-			Obj_manager.fade = 0.01
-			Obj_manager.fadeDirection = 1
+			TransitionEffect("in")
 			alarm[10] = 25
 		}
 	}

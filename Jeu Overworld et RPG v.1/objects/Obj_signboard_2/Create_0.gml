@@ -2,6 +2,7 @@ interact = 0
 compteur = 0
 xbord = 0
 ybord = 2
+set_depth()
 
 var m1 = [ ["µOoooh ! Ouais merci beaucoup ! Tu me fais super plaisir !"], ["A plus, mon pote !"] ]
 var m2 = [ ["... ¤QUOI ?!?! Mais ça va pas la tête ?! J'suis super beau !"], ["Désolé mais j'fréquente pas ceux qui apprécient pas ma beauté. #Dégage s'il te plaît."] ]

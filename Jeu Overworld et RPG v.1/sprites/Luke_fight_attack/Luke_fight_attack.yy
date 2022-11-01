@@ -76,6 +76,6 @@
   "nineSlice": null,
   "parent": {
     "name": "Luke_fight",
-    "path": "folders/Sprites/Luke_fight.yy",
+    "path": "folders/Sprites/Sprites_fight/Luke_fight.yy",
   },
 }

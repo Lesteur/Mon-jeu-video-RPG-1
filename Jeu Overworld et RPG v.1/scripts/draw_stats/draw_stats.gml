@@ -10,7 +10,7 @@ function draw_stats(){
 	
 	var c = ds_map_keys_to_array(status_list)
 	
-	if !Obj_manager_fight.issue_battle && !Obj_manager_fight.act && (Obj_manager_fight.menu[Obj_manager_fight.menu_i] == "action") {
+	if !Obj_manager_fight.issue_battle && !Obj_manager_fight.act {//&& (Obj_manager_fight.menu[Obj_manager_fight.menu_i] == "action") {
 		
 		if array_length(a) {
 			if array_length(a) > 1 {

@@ -80,6 +80,6 @@
   "nineSlice": null,
   "parent": {
     "name": "basic_bow",
-    "path": "folders/Sprites/basic_bow.yy",
+    "path": "folders/Sprites/Sprites_fight/Weapons/basic_bow.yy",
   },
 }

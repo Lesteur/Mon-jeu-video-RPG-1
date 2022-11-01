@@ -69,7 +69,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Sprites.yy",
+    "name": "Weapons",
+    "path": "folders/Sprites/Sprites_fight/Weapons.yy",
   },
 }

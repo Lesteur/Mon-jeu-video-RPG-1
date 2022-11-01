@@ -74,6 +74,6 @@
   "nineSlice": null,
   "parent": {
     "name": "basic_sword",
-    "path": "folders/Sprites/basic_sword.yy",
+    "path": "folders/Sprites/Sprites_fight/Weapons/basic_sword.yy",
   },
 }

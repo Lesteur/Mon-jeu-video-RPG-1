@@ -11,6 +11,10 @@ function cutscene_create_obj(pos, pos_layer, obj){
 	cutscene_end_action()
 }
 
+function cutscene_box() {
+	cutscene_end_action()
+}
+
 function cutscene_end_action() {
 	scene++
 	if scene >= array_length(scene_info) {
@@ -114,6 +118,16 @@ function cutscene_add(variable, t_event) {
 	}
 	scene++
 	event_perform(ev_other, ev_user1)
+}
+
+function cutscene_fight(event, team, team_enemy, interact = 1, param = {}) {
+	var inst = instance_create_layer(global.player.x, global.player.y, "Instances_1", Obj_event_1)
+	inst.t_scene_info = event
+	inst.type_interact = interact
+	object_set_persistent(inst, true)
+	begin_battle(global.team_v, team_enemy, param)
+	cutscene_end_action()
+	global.interact = 1
 }
 
 function cutscene_move_character(obj, pos, relative, spd) {

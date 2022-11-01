@@ -1,4 +1,3 @@
-set_depth()
 interact_overworld()
 
 if (interact == 1) {

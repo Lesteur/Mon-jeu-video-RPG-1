@@ -67,7 +67,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "germicroque",
-    "path": "folders/Sprites/germicroque.yy",
+    "name": "Germicroque",
+    "path": "folders/Sprites/Sprites_fight/Enemies/Germicroque.yy",
   },
 }

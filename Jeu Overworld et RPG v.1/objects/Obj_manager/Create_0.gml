@@ -1,7 +1,8 @@
 targetInstance = noone
 fade = 1
 fadeDirection = -1
-team_overworld(240, 400)
+cc = 0
+transition = 0
 
 window_ajust()
 

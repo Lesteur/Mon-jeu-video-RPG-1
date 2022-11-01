@@ -78,6 +78,6 @@
   "nineSlice": null,
   "parent": {
     "name": "Interface_fight",
-    "path": "folders/Sprites/Interface_fight.yy",
+    "path": "folders/Sprites/Sprites_fight/Interface_fight.yy",
   },
 }

@@ -5,8 +5,7 @@ var _exit = instance_place(x, y, Obj_exit)
 if ( _exit != noone && alarm[0] < 0) {
 	global.interact = 1
 	targetRoom = _exit.targetRoom
-	Obj_manager.fade = 0.01
-	Obj_manager.fadeDirection = 1
+	TransitionEffect("in")
 	alarm[0] = 25
 	Obj_manager.targetInstance = _exit.targetInstance
 }

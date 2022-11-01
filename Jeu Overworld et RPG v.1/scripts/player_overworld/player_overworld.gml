@@ -19,15 +19,21 @@ function player_overworld() {
 	moveV = key_down - key_up
 
 	vsp = moveV * movesp
+	
+	if !place_meeting(x, y, Obj_event_1) {
+		if (key_right && !place_meeting( x + movesp, y, Obj_collision)) || (key_left && !place_meeting( x - movesp, y, Obj_collision)) {
+			x += hsp
+			move = 1
+		} else {
+			hsp = 0
+		}
 
-	if (key_right && !place_meeting( x + movesp, y, Obj_collision)) || (key_left && !place_meeting( x - movesp, y, Obj_collision)) {
-		x += hsp
-		move = 1
-	}
-
-	if (key_up && !place_meeting( x, y - movesp, Obj_collision)) || (key_down && !place_meeting( x, y + movesp, Obj_collision)) {
-		y += vsp
-		move = 1
+		if (key_up && !place_meeting( x, y - movesp, Obj_collision)) || (key_down && !place_meeting( x, y + movesp, Obj_collision)) {
+			y += vsp
+			move = 1
+		} else {
+			vsp = 0
+		}
 	}
 
 	if key_D {
@@ -48,38 +54,44 @@ function player_overworld() {
 			image_speed = 0.30
 		}
 	}
-
-	if key_up && (hsp == 0) {
-		sprite_index = sprite_walk_top
-	}
-	if key_down && (hsp == 0) {
-		sprite_index = sprite_walk_bottom
-	}
-	if key_right && (vsp == 0) {
-		sprite_index = sprite_walk_right
-	}
-	if key_left && (vsp == 0) {
-		sprite_index = sprite_walk_left
-	}
-
-	if (vsp < 0) && (sprite_index == sprite_walk_bottom) {
-		sprite_index = sprite_walk_top
-	}
-	if (vsp > 0) && (sprite_index == sprite_walk_top) {
-		sprite_index = sprite_walk_bottom
-	}
-	if (hsp > 0) && (sprite_index == sprite_walk_left) {
-		sprite_index = sprite_walk_right
-	}
-	if (hsp < 0) && (sprite_index == sprite_walk_right) {
-		sprite_index = sprite_walk_left
-	}
 	
-	var list = [sprite_walk_bottom, sprite_walk_top, sprite_walk_left, sprite_walk_right]
-	var sp = research_array(list, sprite_index)
-	
+	if !place_meeting( x, y - movesp, Obj_event_1) {
+
+		if key_up && (hsp == 0) {
+			sprite_index = sprite_walk_top
+		}
+		if key_down && (hsp == 0) {
+			sprite_index = sprite_walk_bottom
+		}
+		if key_right && (vsp == 0) {
+			sprite_index = sprite_walk_right
+		}
+		if key_left && (vsp == 0) {
+			sprite_index = sprite_walk_left
+		}
+
+		if (vsp < 0) && (sprite_index == sprite_walk_bottom) {
+			sprite_index = sprite_walk_top
+		}
+		if (vsp > 0) && (sprite_index == sprite_walk_top) {
+			sprite_index = sprite_walk_bottom
+		}
+		if (hsp > 0) && (sprite_index == sprite_walk_left) {
+			sprite_index = sprite_walk_right
+		}
+		if (hsp < 0) && (sprite_index == sprite_walk_right) {
+			sprite_index = sprite_walk_left
+		}
+		
+	}
+		
 	if move == 1 {
-		ds_queue_enqueue(queue, [x, y, sp])
+	
+		var list = [sprite_walk_bottom, sprite_walk_top, sprite_walk_left, sprite_walk_right]
+		var sp = research_array(list, sprite_index)
+	
+		ds_queue_enqueue(queue, [hsp, vsp, sp])
+	
 	}
 
 	if keyboard_check_pressed(ord("S")) {

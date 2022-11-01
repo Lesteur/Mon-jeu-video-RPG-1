@@ -67,7 +67,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "grades",
-    "path": "folders/Sprites/grades.yy",
+    "name": "Grades",
+    "path": "folders/Sprites/Sprites_fight/Grades.yy",
   },
 }
