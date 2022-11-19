@@ -35,6 +35,7 @@ switch(player.animation) {
 		image_alpha = 0
 		break
 	case 4:
+	case 4.5:
 		sprite_index = sprite_fight_special
 		depth = player.depth -1
 		if image_index >= 8 {

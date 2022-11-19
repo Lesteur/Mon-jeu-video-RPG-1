@@ -1,5 +1,6 @@
 function prepare_action(comp){
 	
+	lanceur.image_index = 0
 	if all_target == true {
 		cible = team_target
 	} else {
@@ -82,7 +83,6 @@ function attack_status(sta) {
 					precision = precision * cible[i].weakness[w][3]
 				}
 			}
-			//cible[i].animation = 1
 			if precision > random(1) {
 				t = true
 				if research_array(["burn", "freeze", "paralysis", "poison", "crippled", "antimagic", "petrific", "curse"], alt) != noone {
@@ -123,7 +123,7 @@ function Atk_normale(lance, cibl, comp){
 	type_attack = "attack"
 	
 	prepare_action(comp)
-	damage_calcul(comp, "physique")
+	damage_calcul(comp)
 	
 	alarm[1] = 10
 	alarm[3] = 70
@@ -137,7 +137,7 @@ function Atk_bow(lance, cibl, comp){
 	type_attack = "attack"
 	
 	prepare_action(comp)
-	damage_calcul(comp, "physique")
+	damage_calcul(comp)
 	
 	for (var i = 0; i < array_length(cible); i++) {
 		var direct = point_direction(lanceur.x, lanceur.y, cible[i].x, cible[i].y)
@@ -183,7 +183,7 @@ function Atk_puiss(lance, cibl, comp){
 	type_attack = "attack"
 	
 	prepare_action(comp)
-	damage_calcul(comp, "physique")
+	damage_calcul(comp)
 	
 	alarm[1] = 20
 	alarm[3] = 80
@@ -193,12 +193,12 @@ function Atk_magique(lance, cibl, comp){
 	act = true
 	lanceur = lance
 	cible = cibl
-	lanceur.animation = 4
+	lanceur.animation = 4.5
 	type_attack = "attack_magic"
 	audio_play_sound(snd_cast_spell, 6, false)
 	
 	prepare_action(comp)
-	damage_calcul(comp, "magic")
+	damage_calcul(comp)
 	functions_magic(comp)
 	
 }
@@ -220,7 +220,7 @@ function PV_recup(lance, cibl, comp){
 		
 		var puiss = puiss/array_length(cible)
 		if (puiss < cible[i].PV_Max*puiss*0.01) {
-			damage[i] = -cible[i].PV_Max*puiss*0.01
+			damage[i] = round(-cible[i].PV_Max*puiss*0.01)
 		} else {
 			damage[i] = -puiss
 		}
@@ -242,7 +242,7 @@ function PM_recup(lance, cibl, comp){
 	prepare_action(comp)
 	
 	for(var i = 0; i < array_length(cible); i++){
-		damage[i] = puiss/array_length(cible)
+		damage[i] = round(puiss/array_length(cible))
 	}
 	
 	alarm[1] = 20

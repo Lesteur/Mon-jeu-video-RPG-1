@@ -43,6 +43,9 @@ function fight_animation() {
 			image_speed = 0
 		}
 		break
+	case 4.5:
+		sprite_index = sprite_fight_special
+		break
 	case 5:
 		sprite_index = sprite_fight_object
 		if (image_index >= image_number - 1) {

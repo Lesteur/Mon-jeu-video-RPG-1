@@ -30,7 +30,7 @@ function set_weak1(array, type, element) {
 	}
 }
 
-function damage_calcul(comp, type){
+function damage_calcul(comp){
 	
 	var puiss = comp.puissance
 	
@@ -66,7 +66,7 @@ function damage_calcul(comp, type){
 			stgth += 1/(1-0.1*turn)
 		}
 		
-		if type == "magic" {
+		if typ == "magic" {
 			var att = lanceur.magic_attack
 			var def = cible[i].magic_defense
 			var att_boost = global.boost_num[? string(lanceur.boost[? "magic_attack"][0])]

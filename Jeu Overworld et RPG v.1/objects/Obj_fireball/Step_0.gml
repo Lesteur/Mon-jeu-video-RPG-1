@@ -16,6 +16,7 @@ if Obj_manager_fight.alarm[1] == 0 {
 if count >= 40 {
 	if count == 40 {
 		audio_play_sound(snd_strong_attack1, 6, false)
+		owner.animation = 1
 	}
 	image_alpha = 1
 	x += lengthdir_x(15, direct)

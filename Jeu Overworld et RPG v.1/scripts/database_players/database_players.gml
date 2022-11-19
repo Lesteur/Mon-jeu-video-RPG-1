@@ -16,8 +16,11 @@ global.Luke = {
 
 	PV_Max : 80,
 	PV : 80,
+	PV_c : [2.143, 20.5, 57.4],
+	
 	PM_Max : 15,
 	PM : 15,
+	PM_c : [0.113, 6.5, 3.4],
 
 	real_attack : 10,
 	attack_c : [0.113, 6.5, 3.4],
@@ -62,8 +65,7 @@ global.Luke = {
 	
 	Basic_attack : crea_skill("Taillade", 0, Atk_normale, 20, 1, 1, 0, "weapon", "weapon", 0),
 
-	skills : [crea_skill("Monte-Attaque", 5, Increase, ["attack", 1, 3], 1, 0, "Augmente l'attaque physique d'un niveau.", 0, 0, 4, effect_increase_attack, false),
-			  crea_skill("Frappalame", 5, Atk_puiss, 50, 1, 1, "Lance une puissante attaque circulaire. #Type : Tranche   Element : Neutre #Puissance : ***", "weapon", "weapon", 5, noone, snd_strong_attack1)],
+	skills : [global.sk_focus_attack, global.sk_strikblade],
 
 	weakness : [],
 	strength : []
@@ -83,15 +85,29 @@ global.Matt = {
 
 	PV_Max : 60,
 	PV : 60,
-	PM_Max : 25,
-	PM : 25,
+	PV_c : [1.126, 31, 26.9],
+	
+	PM_Max : 15,
+	PM : 15,
+	PM_c : [0.2815, 8, 6.7],
 
-	real_attack : 3,
-	real_magic_attack : 12,
-	real_defense : 7,
-	real_magic_defense : 13,
-	real_agility : 7,
-	real_accuracy : 4,
+	real_attack : 10,
+	attack_c : [0.0049, 1.2, 8.8],
+	
+	real_magic_attack : 15,
+	magic_attack_c : [0.1734, 2.7, 12],
+	
+	real_defense : 10,
+	defense_c : [-0.0828, 9.1, 1],
+	
+	real_magic_defense : 15,
+	magic_defense_c : [0.0604, 6.2, 8.7],
+	
+	real_agility : 5,
+	agility_c : [0.0584, -0.26, 5.2],
+	
+	real_accuracy : 5,
+	accuracy_c : [0.0417, -0.085, 5],
 	
 	EXP : 0,
 	Niveau : 1,
@@ -118,11 +134,7 @@ global.Matt = {
 	
 	Basic_attack : crea_skill("Coup de bâton", 0, Atk_normale, 20, 1, 1, 0, "weapon", "weapon", 0),
 
-	skills : [crea_skill("Flammèche", 5, Atk_magique, 40, 0, 2, "Inflige des dégats élémentaires de feu. #Type : Magie   Element : Feu #Puissance : **", "magic", "fire", 0, noone, false),
-			crea_skill("Glaçon", 5, Atk_magique, 40, 0, 2, "Inflige des dégats élémentaires de glace. #Type : Magie   Element : Glace #Puissance : **", "magic", "ice", 1, noone, false),
-			crea_skill("Décharge", 5, Atk_magique, 40, 0, 2, "Inflige des dégats élémentaires de foudre. #Type : Magie   Element : Foudre #Puissance : **", "magic", "thunder", 2, noone, false),
-			crea_skill("Soin", 5, Atk_magique, 30, 0, 2, "Restaure des PV grâce à la puissance divine. #Type : Magie   Element : Soin #Puissance : **", "magic", "heal", 3, noone, false),
-			crea_skill("Fontaine", 5, Atk_magique, 40, 0, 2, "Inflige des dégats élémentaires d'eau. #Type : Magie   Element : Eau #Puissance : **", "magic", "water", 6, effect_water, false)],
+	skills : [global.sk_fireball, global.sk_iceblock, global.sk_shock, global.sk_fountain, global.sk_heal],
 
 	weakness : [],
 	strength : []
@@ -142,15 +154,29 @@ global.Arthur = {
 
 	PV_Max : 70,
 	PV : 70,
+	PV_c : [1.1845, 36.7, 32.1],
+	
 	PM_Max : 15,
 	PM : 15,
+	PM_c : [0.1179, 2.7, 12.2],
 
-	real_attack : 14,
-	real_magic_attack : 3,
-	real_defense : 7,
-	real_magic_defense : 4,
-	real_agility : 7,
-	real_accuracy : 11,
+	real_attack : 10,
+	attack_c : [0.0795, 6.8, 3.0],
+	
+	real_magic_attack : 5,
+	magic_attack_c : [-0.1149, 12, -6.9],
+	
+	real_defense : 10,
+	defense_c : [-0.0316, 6.8, 3.2],
+	
+	real_magic_defense : 5,
+	magic_defense_c : [0.0331, 5.3, 9.6],
+	
+	real_agility : 5,
+	agility_c : [0.0857, 0.62, 4.3],
+	
+	real_accuracy : 10,
+	accuracy_c : [0.1149, 3, 6.9],
 	
 	EXP : 0,
 	Niveau : 1,
@@ -177,12 +203,11 @@ global.Arthur = {
 	
 	Basic_attack : crea_skill("Tir de flèche", 0, Atk_bow, 15, 1, 1, 0, "weapon", "weapon", 0),
 
-	skills : [crea_skill("Monte-Attaque", 5, Increase, ["attack", 1, 3], 1, 0, "Augmente l'attaque physique pour 4 tours.", 0, 0, 4, effect_increase_attack, false)],
+	skills : [global.sk_focus_attack],
 
 	weakness : [],
 	strength : []
 }
 
 global.characters = [global.Luke, global.Matt, global.Arthur]
-global.team_v = [global.Matt, global.Arthur, global.Luke]
-//global.team_v = [global.Luke, global.Matt, global.Arthur]
+global.team_v = [global.Luke, global.Matt, global.Arthur]

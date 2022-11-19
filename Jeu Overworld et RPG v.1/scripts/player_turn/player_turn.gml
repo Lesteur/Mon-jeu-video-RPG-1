@@ -20,12 +20,34 @@ function player_turn(player) {
 				message_monitor = message_routine[message_i]
 				break
 			case "skills":
-				choice_skill = select_choice(choice_skill, array_length(player.skills)-1, false)
-				message_monitor = player.skills[choice_skill].description_1
+				var len = array_length(player.skills)
+				var l = n-1
+				var pages = ceil(len/n) - 1
+				if choice_skill_page == pages && len mod n != 0 {
+					l = (len mod n) - 1
+					if choice_skill > l {
+						choice_skill = l
+					}
+				}
+				var m = choice_skill + n*choice_skill_page
+				choice_skill = select_choice(choice_skill, l, false)
+				choice_skill_page = select_choice(choice_skill_page, pages, true)
+				message_monitor = player.skills[m].description_1
 				break
 			case "objects":
-				choice_objets = select_choice(choice_objets, array_length(global.inventory)-2, false, 2)
-				message_monitor = global.inventory[choice_objets].description_1
+				var len = array_length(global.inventory)
+				var l = (n-1)*2
+				var pages = ceil(len/(n*2)) - 1
+				if choice_objets_page == pages && len mod n != 0 {
+					l = (len mod (n*2)) - 2
+					if choice_objets > l {
+						choice_objets = l-1
+					}
+				}
+				var t = choice_objets + n*choice_objets_page*2
+				choice_objets = select_choice(choice_objets, l, false, 2)
+				choice_objets_page = select_choice(choice_objets_page, pages, true)
+				message_monitor = global.inventory[t].description_1
 				break
 			case "formation":
 			case "formation_c":
@@ -58,7 +80,7 @@ function player_turn(player) {
 						menu[menu_i] = "skills"
 						audio_play_sound(snd_select, 4, false)
 					} else if (menu[menu_i] == "skills") || (menu[menu_i] == "skills_target") {
-						use_skills(player, player.skills[choice_skill])
+						use_skills(player, player.skills[choice_skill+n*choice_skill_page])
 					}
 					break
 				case 2:
@@ -82,12 +104,14 @@ function player_turn(player) {
 						menu[menu_i] = "objects"
 						audio_play_sound(snd_select, 4, false)
 					} else if (menu[menu_i] == "objects") || (menu[menu_i] == "objects_target") {
-						use_objects(player, global.inventory[choice_objets])
+						var t = choice_objets + n*choice_objets_page*2
+						use_objects(player, global.inventory[t])
 					}
 					break
 				case 4:
 					act = true
 					player.guard = 1.5
+					player.image_index = 0
 					lanceur = player
 					cible = []
 					add_action(["guard", lanceur, cible])
@@ -96,9 +120,14 @@ function player_turn(player) {
 					audio_play_sound(snd_select, 4, false)
 					break
 				case 5:
-					message_quick = "Hein ?! C'est pas le moment pour ça !"
-					message_quick_t = 50
-					audio_play_sound(snd_false, 4, false)
+					if param_fight("flee") == -1 {
+						issue_battle = 3
+						audio_play_sound(snd_select, 4, false)
+					} else {
+						message_quick = "Hein ?! C'est pas le moment pour ça !"
+						message_quick_t = 50
+						audio_play_sound(snd_false, 4, false)
+					}
 					break
 			}
 			if menu[menu_i] == "exam" {
@@ -111,14 +140,14 @@ function player_turn(player) {
 		if menu[menu_i] == "exam" && !act {
 			choice_exam = select_choice(choice_exam, array_length(team_enemy_a)-1, false)
 			cursor_i += 1/3
-			message_monitor = team_enemy_a[choice_exam].name
+			message_monitor = call_object(team_enemy_a[choice_exam])
 		}
 	
 		if (menu[menu_i] == "target" || menu[menu_i] == "skills_target" || menu[menu_i] == "objects_target") && !act {
 			select_charac(team_target)
 			cursor_i += 1/3
 			if all_target != true {
-				message_monitor = team_target[target].name
+				message_monitor = call_object(team_target[target],,,,true)
 			} else {
 				message_monitor = "Tous sélectionnés"
 			}
@@ -170,7 +199,7 @@ function player_turn(player) {
 
 	}
 
-	if (menu_effect > 0) && act {
+	if ((menu_effect > 0) && act) {
 			if menu_effect <= 9 {
 				menu_effect -= (19/4)
 			} else {

@@ -10,17 +10,20 @@ function use_objects(player, object){
 		}
 		audio_play_sound(snd_select, 4, false)
 	} else {
-		message_monitor = player.name + " utilise " + call_object(object, 1) + " !"//string(object.name) + " !"
+		var mess = "<player> utilise <object> !"
+		mess = string_replace(mess, "<player>", player.name)
+		mess = string_replace(mess, "<object>", call_object(object, "un"))
+		message_monitor = mess
 		lanceur = player
 		player.animation = 5
-		global.inventory[choice_objets+1] --
-		if global.inventory[choice_objets+1] == 0 {
-			array_delete(global.inventory, choice_objets, 2)
+		player.image_index = 0
+		var t = choice_objets + n*choice_objets_page*2
+		global.inventory[t+1] --
+		if global.inventory[t+1] == 0 {
+			array_delete(global.inventory, t, 2)
 		}
-		
 		var array = team_target[target].weakness
 		var w = noone//check_weakness(array, "object", object.true_name)
-		
 		if w != noone {
 			script_execute(array[w][2], player, team_target[target], array[w][3])
 		} else {

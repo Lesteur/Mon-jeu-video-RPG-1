@@ -205,7 +205,7 @@ function add_inventory(add_boot) {
 function fight_result(strategy, turn, damage, level) {
 	var sc = strategy
 	if turn <= 5*power(1.2, level) {
-		sc += 100 * (5*power(1.2, level)-turn)
+		sc += 150 * (5*power(1.2, level)-turn)
 	}
 	if sc >= level*1000 && turn <= 5*power(1.2, level) && damage <= 20*level {
 		return "s"
@@ -237,6 +237,40 @@ function EXP_mult(grade) {
 	return 1
 }
 
+function param_fight(variable) {
+	if variable_struct_exists(global.param_fight, variable) {
+		return variable_struct_get(global.param_fight, variable)
+	} else {
+		return -1
+	}
+}
+	
+function message_intro_fight() {
+	var t = []
+	for (var i = 0; i < array_length(global.team_enemy); i++) {
+		var n = global.team_enemy[i].num
+		var indice = check_num(t, n)
+		if indice == noone {
+			array_push(t, global.team_enemy[i], 1)
+		} else {
+			global.team_enemy[i-1].letter = " " + global.alphabet[t[1 + indice]-1]
+			global.team_enemy[i].letter = " " + global.alphabet[t[1 + indice]]
+			t[1 + indice] += 1
+		}
+	}
+	var long = array_length(t)
+	var mess = ""
+	for (var i = 0; i < long; i+= 2) {
+		mess += call_object(t[i], "un", t[i+1], true)
+		if t[i+1] > 1 {
+			mess += " apparaissent !#"
+		} else {
+			mess += " apparaît !#"
+		}
+	}
+	return string(mess)
+}
+
 function recup_data_fight() {
 	for (var i = 0; i < array_length(global.team); i++) {
 		var char = global.team[i]
@@ -248,5 +282,12 @@ function recup_data_fight() {
 		global.characters[j].Niveau = char.Niveau
 		global.characters[j].EXP = char.EXP
 		global.characters[j].EXP_restant = char.EXP_restant
+		
+		global.characters[i].real_attack = char.real_attack
+		global.characters[i].real_defense = char.real_defense
+		global.characters[i].real_magic_attack = char.real_magic_attack
+		global.characters[i].real_magic_defense = char.real_magic_defense
+		global.characters[i].real_accuracy = char.real_accuracy
+		global.characters[i].real_agility = char.real_agility
 	}
 }

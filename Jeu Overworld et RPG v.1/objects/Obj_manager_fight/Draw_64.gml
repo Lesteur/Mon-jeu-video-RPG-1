@@ -203,10 +203,18 @@ if menu[menu_i] == "skills" && !act {
 	
 	var player = global.team[turn]
 	
-	for (var i = 0; i < array_length(player.skills); ++i;) {
+	var len = array_length(player.skills)
+	var l = n-1
+	var pages = ceil(len/n)-1
+	if choice_skill_page == pages && len mod n != 0 {
+		l = (len mod n) - 1
+	}
+	var m = n*choice_skill_page
+	
+	for (var i = 0; i <= l; ++i) {
 		
 		var color = c_white
-		var sk = player.skills[i]
+		var sk = player.skills[i + m]
 		var name = sk.name
 		var pm = sk.PM
 		var sp = sk.graphisme
@@ -231,19 +239,26 @@ if menu[menu_i] == "skills" && !act {
 	}
 	
 	draw_set_halign(fa_left)
-	text_sha(118, 155, "PAGE 1 / 1")
+	text_sha(118, 155, "PAGE " + string(choice_skill_page+1) + " / " + string(pages+1))
 }
 
 if menu[menu_i] == "objects" && !act {
 	
 	draw_sprite(menu_skills_1, 0, 110, 12)
+	var len = array_length(global.inventory)
+	var l = (n-1)*2
+	var pages = ceil(len/(n*2)) - 1
+	if choice_objets_page == pages && len mod n != 0 {
+		l = (len mod (n*2)) - 2
+	}
+	var m = n*choice_objets_page*2
 	
-	for (var i = 0; i < array_length(global.inventory); i += 2;) {
+	for (var i = 0; i <= l; i += 2) {
 		
 		var color = c_white
-		var ob = global.inventory[i]
+		var ob = global.inventory[i + m]
 		var name = ob.name
-		var qa = global.inventory[i+1]
+		var qa = global.inventory[i+1 + m]
 		var sp = ob.graphisme_1
 		
 		draw_sprite(menu_skills_2, 0, 118, 20 + (i/2)*17)
@@ -264,7 +279,7 @@ if menu[menu_i] == "objects" && !act {
 	}
 	
 	draw_set_halign(fa_left)
-	text_sha(118, 155, "PAGE 1 / 1")
+	text_sha(118, 155, "PAGE " + string(choice_objets_page+1) + " / " + string(pages+1))
 }
 
 if issue_battle == 1 && act {

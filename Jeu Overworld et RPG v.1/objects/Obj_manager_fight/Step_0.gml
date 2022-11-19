@@ -6,11 +6,17 @@ if !issue_battle {
   } else if (global.player_turn == 1) {
 	enemy_turn(global.team_enemy[turn])
   }
+} else if issue_battle == 3 {
+	message_monitor = "Vous avez pris la fuite..."
+	if keyboard_check_pressed(vk_space) && !quit {
+		quit = true
+		TransitionEffect("in")
+		alarm[10] = 25
+	}
 }
 
 if issue_battle == 1 {
 	message_monitor = "Victoire !"
-	
 	if keyboard_check_pressed(vk_space) {
 		if !act {
 			act = true
@@ -26,7 +32,7 @@ if issue_battle == 1 {
 	if act {
 		defil ++
 		if EXP_won > 0 && defil >= 160 {
-			def_exp(self)
+			def_exp(id, false, false)
 		}
 	}
 } else if issue_battle == 2 {

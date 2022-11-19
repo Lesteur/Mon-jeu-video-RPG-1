@@ -1,6 +1,7 @@
 type = "Enemy"
 
 status = false
+letter = ""
 status_list = ds_map_create()
 weapon = noone
 shield = noone

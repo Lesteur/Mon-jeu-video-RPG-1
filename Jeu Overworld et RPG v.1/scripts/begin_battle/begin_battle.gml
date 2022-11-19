@@ -1,6 +1,7 @@
 function begin_battle(team, team_enemy, param = {}){
 	global.team = team
 	global.team_enemy = team_enemy
+	global.param_fight = param
 	global.interact = 1
 	global.fight = 1
 	global.position = []
@@ -10,6 +11,7 @@ function begin_battle(team, team_enemy, param = {}){
 	}
 	global.position_room = room
 	global.player.targetRoom = room_battlefield_forest
+	global.resume[0] = id
 	TransitionEffect(transition_fight_1)
 	global.player.alarm[0] = 25
 }

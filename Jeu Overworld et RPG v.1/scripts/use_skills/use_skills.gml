@@ -1,9 +1,12 @@
 function use_skills(player, skill){
 
-	if player.PM >= skill.PM {	
+	if player.PM >= skill.PM {
+		var mess = "<player> lance <skill> !"
+		mess = string_replace(mess, "<player>", player.name)
+		mess = string_replace(mess, "<skill>", skill.name)
 		if skill.portee == 0 && menu[menu_i] == "skills" {
 			player.PM -= skill.PM
-			message_monitor = player.name + " lance " + string(skill.name) + " !"
+			message_monitor = mess
 			script_execute(skill.funct, player, player, skill)
 		} else if skill.portee == 1 && menu[menu_i] == "skills" {
 			menu_i ++
@@ -25,7 +28,7 @@ function use_skills(player, skill){
 			audio_play_sound(snd_select, 4, false)
 		} else {
 			player.PM -= skill.PM
-			message_monitor = player.name + " lance " + string(skill.name) + " !"
+			message_monitor = mess
 			script_execute(skill.funct, player, team_target[target], skill)
 		}
 	} else {

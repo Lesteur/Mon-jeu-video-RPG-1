@@ -7,5 +7,15 @@ global.t = 0
 //global.player = Obj_player
 global.position_room = Zone_true_1
 global.fight = 0
+global.resume = [0, 0]
+global.money = 0
 
 global.team_enemy = []
+global.param_fight = {}
+
+enum states {
+	idle = 0,
+	wander = 1,
+	alert = 2,
+	paralys = 3
+}

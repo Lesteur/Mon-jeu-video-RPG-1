@@ -17,6 +17,7 @@ function script_victory() {
 	EXP_won = round(EXP_won*EXP_mult(grade))
 	add_loot()
 	add_inventory(loot)
+	global.money += galas
 	for (var i = 0; i < array_length(global.team); ++i) {
 		global.team[i].animation = 6
 		global.team[i].image_index = 0

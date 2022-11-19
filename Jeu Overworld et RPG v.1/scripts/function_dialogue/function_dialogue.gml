@@ -78,7 +78,7 @@ function function_dialogue(dialogue) {
 			}
 		}
 		
-		variable_instance_set(self, dialogue[i][4], global.reponse)
+		variable_instance_set(id, dialogue[i][4], global.reponse)
 		
 	}
 

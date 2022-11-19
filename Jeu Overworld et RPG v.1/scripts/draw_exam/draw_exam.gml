@@ -11,7 +11,7 @@ function draw_exam(object){
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_bottom)
 	
-	text_sha(207, 25, object.name)
+	text_sha(207, 25, call_object(object))
 	
 	text_sha(207, 40, "PV : "+ string(object.PV) + " / " +string(object.PV_Max))
 	

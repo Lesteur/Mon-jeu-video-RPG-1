@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "Obj_event_2",
   "spriteId": {
-    "name": "sprite_signboard",
-    "path": "sprites/sprite_signboard/sprite_signboard.yy",
+    "name": "germicroque_overworld",
+    "path": "sprites/germicroque_overworld/germicroque_overworld.yy",
   },
   "solid": false,
   "visible": true,

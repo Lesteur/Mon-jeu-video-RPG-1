@@ -96,15 +96,20 @@ function cutscene_change_xscale(obj, image_xsc) {
 	cutscene_end_action()
 }
 
-function cutscene_change_variable(obj, variable, value) {
-	with (obj) {
-		variable_instance_set(obj, variable, value)
+function cutscene_change_variable(obj, variable, value, add) {
+	if obj == "global" {
+		if add {
+			value += variable_global_get(variable)
+		}
+		variable_global_set(variable, value)
+	} else {
+		with (obj) {
+			if add {
+				value += variable_instance_get(obj, variable)
+			}
+			variable_instance_set(obj, variable, value)
+		}
 	}
-	cutscene_end_action()
-}
-
-function cutscene_change_global_variable(variable, value) {
-	variable_global_set(variable, value)
 	cutscene_end_action()
 }
 
@@ -120,7 +125,12 @@ function cutscene_add(variable, t_event) {
 	event_perform(ev_other, ev_user1)
 }
 
-function cutscene_fight(event, team, team_enemy, interact = 1, param = {}) {
+function cutscene_add_inventory(objects) {
+	add_inventory(objects)
+	cutscene_end_action()
+}
+
+function cutscene_fight(event, team, team_enemy, param = {}, interact = 1) {
 	var inst = instance_create_layer(global.player.x, global.player.y, "Instances_1", Obj_event_1)
 	inst.t_scene_info = event
 	inst.type_interact = interact

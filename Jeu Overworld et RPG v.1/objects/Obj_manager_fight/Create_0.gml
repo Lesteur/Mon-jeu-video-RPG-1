@@ -10,7 +10,10 @@ quit = 0
 
 choice_exam = 0
 choice_skill = 0 //compétence à choisir
+choice_skill_page = 0
+n = 8
 choice_objets = 0 //object à choisir
+choice_objets_page = 0
 choice_enemy = 1 //détermine l'attaque ennemi
 enemy_target = 0 //cible de l'ennemi
 choice = 0 //attaque à choisir
@@ -62,14 +65,15 @@ EXP_restant = courbe_exp(2)
 EXP_won = 0
 EXP_tranche = 0
 
-message_routine = ["Un germicroque apparaît !", "Le germicroque vous menace avec ses dents.", "C'est un ennemi plutôt faible, vous devriez vous en sortir...", "Bon, qu'allez vous faire ?"] //Messages affichés lors des combats
 message_quick = false //Message rapide
 message_quick_t = 0 //Durée du message rapide
 message_i = 0 //Indice du message
+message_routine = [message_intro_fight(), "Le germicroque vous menace avec ses dents.", "C'est un ennemi plutôt faible, vous devriez vous en sortir...", "Bon, qu'allez vous faire ?"] //Messages affichés lors des combats
 message_monitor = message_routine[message_i] //Message affiché lors du combat
 compte_i = 0
 i_status = 0
 
+def_constantes()
 function get_icon(icon) {
 	return global.icon[? icon]
 }

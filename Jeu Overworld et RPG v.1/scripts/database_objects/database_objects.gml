@@ -1,6 +1,7 @@
-function crea_object(nam, func, puiss, port, descript, sprite, eff, snd) {
+function crea_object(nam, nam_conj, func, puiss, port, descript, sprite, eff, snd) {
 	return {
 		name : nam,
+		name_conj : nam_conj,
 		funct : func,
 		puissance : puiss,
 		portee : port,
@@ -13,7 +14,7 @@ function crea_object(nam, func, puiss, port, descript, sprite, eff, snd) {
 
 global.potion_heal_1 = {
 	name : "potion de soin",
-	name_conj : [1, "potions de soin"],
+	name_conj : ["fem", "potions de soin"],
 	funct : PV_recup,
 	puissance : 20,
 	portee : 0,
@@ -25,7 +26,7 @@ global.potion_heal_1 = {
 
 global.potion_energy_1 = {
 	name : "potion d'énergie",
-	name_conj : [1, "potions d'énergie"],
+	name_conj : ["fem", "potions d'énergie"],
 	funct : PM_recup,
 	puissance : 10,
 	portee : 0,
@@ -37,7 +38,7 @@ global.potion_energy_1 = {
 
 global.mushroom_poison = {
 	name : "amanite poisonite",
-	name_conj : [1, "amanites poisonite"],
+	name_conj : ["fem", "amanites poisonite"],
 	funct : Set_status,
 	puissance : ["poison", 1, 2],
 	portee : 1,
@@ -49,7 +50,7 @@ global.mushroom_poison = {
 
 global.stone_burn = {
 	name : "pierre charbon",
-	name_conj : [1, "pierres charbon"],
+	name_conj : ["fem", "pierres charbon"],
 	funct : Set_status,
 	puissance : ["burn", 1, 2],
 	portee : 1,
@@ -61,7 +62,7 @@ global.stone_burn = {
 
 global.star_freeze = {
 	name : "étoile de gel",
-	name_conj : [1, "étoiles de gel"],
+	name_conj : ["fem", "étoiles de gel"],
 	funct : Set_status,
 	puissance : ["freeze", 1, 2],
 	portee : 1,
@@ -73,7 +74,7 @@ global.star_freeze = {
 
 global.stone_volt = {
 	name : "pierre volt",
-	name_conj : [1, "pierres volt"],
+	name_conj : ["fem", "pierres volt"],
 	funct : Set_status,
 	puissance : ["paralysis", 1, 2],
 	portee : 1,
@@ -82,3 +83,5 @@ global.stone_volt = {
 	effect : effect_paralysis,
 	sound : snd_heal
 }
+
+global.inventory = [ global.potion_heal_1, 2, global.potion_energy_1, 3, global.mushroom_poison, 1, global.stone_burn, 1, global.star_freeze, 2, global.stone_volt, 1 ]

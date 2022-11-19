@@ -6,7 +6,7 @@ part_system_depth(global.partSystem50, -50)
 var p = part_type_create()
 part_type_sprite(p, basic_sword_neutral, true, true, false)
 part_type_life(p, 7, 7)
-part_type_size(p, 1.5, 1.5, 0, 0)
+part_type_size(p, 1, 1, 0, 0)
 global.part_attack = p
 
 //Effect heal PV
@@ -30,13 +30,6 @@ part_type_speed(p, 1.1, 1.2, 0, 0)
 part_type_direction(p, 90, 90, 0, 0)
 part_type_orientation(p, 0, 359, 5, 0, 0)
 global.part_heal_pm = p
-
-//Effect increase attack
-var p = part_type_create()
-part_type_sprite(p, effect_increase_attack, true, true, false)
-part_type_life(p, 20, 20)
-part_type_size(p, 0.8, 0.8, 0, 0)
-global.part_increase_att = p
 
 //Following fireball
 var p = part_type_create()
@@ -63,17 +56,7 @@ part_type_size(p, 1.5, 1.5, -0.05, 0)
 part_type_speed(p, 3.5, 3.5, -0.1, 0)
 part_type_direction(p, 0, 359, 0, 0)
 
-global.ptIceblock = p
-
-//Thunder
-var p = part_type_create()
-part_type_sprite(p, effect_volt, true, false, true)
-part_type_life(p, 10, 10)
-part_type_size(p, 0.5, 0.5, 0, 0.5)
-part_type_speed(p, 0.05, 0.05, 0, 0)
-part_type_direction(p, 0, 359, 0, 10)
-
-global.part_Thunder = p
+global.part_Snowflake = p
 
 //Poison
 var p = part_type_create()
@@ -85,12 +68,3 @@ part_type_direction(p, 90, 90, 0, 0)
 part_type_gravity(p, 0.05, 90)
 
 global.part_Poison = p
-
-//Paralysis
-var p = part_type_create()
-part_type_sprite(p, effect_paralysis, true, false, false)
-part_type_life(p, 40, 40)
-part_type_alpha3(p, 1, 1, 0)
-part_type_speed(p, 0, 0, 0, 0)
-
-global.part_Paralysis = p

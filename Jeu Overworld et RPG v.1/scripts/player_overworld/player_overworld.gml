@@ -34,6 +34,10 @@ function player_overworld() {
 		} else {
 			vsp = 0
 		}
+		
+		if hsp == 0 && vsp == 0 {
+			move = 0
+		}
 	}
 
 	if key_D {
@@ -44,7 +48,7 @@ function player_overworld() {
 
 	// Animations du joueur
 
-	if ((hsp == 0) && (vsp == 0)) || move == 0 {
+	if move == 0 {
 		image_speed = 0
 		image_index = 0
 	} else {
@@ -56,7 +60,6 @@ function player_overworld() {
 	}
 	
 	if !place_meeting( x, y - movesp, Obj_event_1) {
-
 		if key_up && (hsp == 0) {
 			sprite_index = sprite_walk_top
 		}
@@ -82,16 +85,13 @@ function player_overworld() {
 		if (hsp < 0) && (sprite_index == sprite_walk_right) {
 			sprite_index = sprite_walk_left
 		}
-		
 	}
 		
 	if move == 1 {
-	
 		var list = [sprite_walk_bottom, sprite_walk_top, sprite_walk_left, sprite_walk_right]
 		var sp = research_array(list, sprite_index)
 	
 		ds_queue_enqueue(queue, [hsp, vsp, sp])
-	
 	}
 
 	if keyboard_check_pressed(ord("S")) {

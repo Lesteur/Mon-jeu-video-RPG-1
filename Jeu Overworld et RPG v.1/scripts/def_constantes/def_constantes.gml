@@ -39,3 +39,5 @@ global.status_num[? "burn"] = 0
 global.status_num[? "freeze"] = 1
 global.status_num[? "paralysis"] = 2
 global.status_num[? "poison"] = 3
+
+global.alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]

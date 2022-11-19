@@ -25,6 +25,9 @@ function draw_text_special(text, x, y, w, z) {
 		}
  
 	switch(letter) {
+		case "(":
+			cx = 3
+			break
 		case "@":
 			cx = 2
 			break
@@ -73,8 +76,14 @@ function draw_text_special(text, x, y, w, z) {
 				break
 		}
 	}
- 
-	if (cx == 0) {
+	
+	if letter == "*" {
+		var shake1 = random_range(-0.5,0.5)
+		var shake2 = random_range(-0.5,0.5)
+		draw_sprite_ext(bad_words, cc, x + 1 + widt + shake1, y + 1 + heig + shake2, 1, 1, 0, c_black, 1)
+		draw_sprite_ext(bad_words, cc, x + widt + shake1, y + heig + shake2, 1, 1, 0, col, 1)
+		widt += 9
+	} else if (cx == 0) {
 		switch(effect) {
 			case 0: //normal
 				draw_text(x + 1 + widt, y + 1 + heig, string_hash_to_newline(letter))
@@ -126,7 +135,22 @@ function draw_text_special(text, x, y, w, z) {
 				draw_text_color(x + widt, y + heig, string_hash_to_newline(letter), col, col, col, col, shift+random_range(-1,1));
 				break
 		}
-		widt += string_width(string_hash_to_newline(string_char_at(argument0, cc)))
+		widt += string_width(string_hash_to_newline(string_char_at(text, cc)))
+	} else if cx == 3 {
+		cc ++
+		var code = ""
+		var type = string_char_at(text, cc)
+		cc ++
+		var letter = string_char_at(text, cc)
+		while (letter != ")") && cc < string_length(text) {
+			code += letter
+			cc ++
+			var letter = string_char_at(text, cc)
+		}
+		if letter == ")" {
+			draw_sprite_ext(sprite_objects, real(code), x + widt, y + heig - 15, 1, 1, 0, c_white, 1)
+			widt += 15
+		}
 	}
        
 	 //Increment variables for next letter

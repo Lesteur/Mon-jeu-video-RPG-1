@@ -9,18 +9,14 @@ function functions_magic(comp){
 				inst.direct = direction
 				inst.len = len
 				inst.cible = cible[i]
+				inst.owner = lanceur
 			}
 			break
 		case "Glaçon":
 			for (var i = 0; i < array_length(cible); i++) {
 				var inst = instance_create_layer(cible[i].x, cible[i].bbox_bottom, "Instances_1", Obj_iceblock)
 				inst.depth = cible[i].depth - 5
-			}
-			break
-		case "Décharge":
-			for (var i = 0; i < array_length(cible); i++) {
-				var inst = instance_create_layer(cible[i].x, cible[i].bbox_bottom, "Instances_1", Obj_thunder)
-				inst.depth = cible[i].depth - 5
+				inst.owner = lanceur
 			}
 			break
 		case "Soin":
@@ -48,8 +44,6 @@ function functions_magic(comp){
 			add_action([action, lanceur, cible])
 			type_attack = "attack"
 			effect_target = effect_heal_pv
-			lanceur.cc = -1000
-			lanceur.weapon.cc = -1000
 			alarm[1] = 40
 			alarm[3] = 100
 			break

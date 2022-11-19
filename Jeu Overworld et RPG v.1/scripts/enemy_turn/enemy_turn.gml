@@ -8,7 +8,7 @@ function enemy_turn(enemy){
 	} else if array_length(immo) != 0 && !act {
 		act = true
 		lanceur = enemy
-		message_monitor = enemy.name + " ne peut plus bouger !"
+		message_monitor = call_object(enemy.name, "le", 1, true, true) + " ne peut plus bouger !"
 		alarm[0] = 40
 		alarm[3] = 39
 	} else {
@@ -22,7 +22,7 @@ function enemy_turn(enemy){
 		
 		if !act {
 			script_execute(choice_enemy.funct, enemy, enemy_target, choice_enemy)
-			message_monitor = choice_enemy.description_1
+			message_monitor = string_replace(choice_enemy.description_1, "<enemy>", call_object(enemy, "le", 1, true, true))
 		}
 	}
 

@@ -109,6 +109,15 @@ function fiche_defil(x, y, player, defilement = 30, orient = 1) {
 	draw_set_alpha(1)
 }
 
+function check_num(array, numero) {
+	for (var i = 0; i < array_length(array); i++) {
+		if array[i].num == numero {
+			return i
+		}
+	}
+	return noone
+}
+
 function research_array(array, element, increm = 1) {
 	for (var i = 0; i < array_length(array); i+=increm) {
 		if array[i] == element {
@@ -132,18 +141,18 @@ function research_array_3d(array, array_elements, increm = 1) {
 function courbe_exp(n) {
 	return power(n, 3)*10
 }
-
-function courbe_stat(a, b, c, x) {
-	return (a*power(x, 2) + b*x + c)
+	
+function update_stat(x, c) {
+	return c[0]*power(x, 2) + c[1]*x + c[2]
 }
 
-function def_exp(player, sound = false){
+function def_exp(player, sound = false, update = true){
 	if player.EXP_won > 100000 {
 		var tranche = 1000
 	} else if player.EXP_won > 10000 {
-		var tranche = 1
+		var tranche = 100
 	} else {
-		var tranche = 1
+		var tranche = 5
 	}
 	if tranche > player.EXP_won {
 		tranche = player.EXP_won
@@ -160,27 +169,76 @@ function def_exp(player, sound = false){
 		}
 		cc = 1
 		player.Niveau += 1
-		player.EXP_restant = courbe_exp(player.Niveau + 1) - player.EXP
+		var n = player.Niveau
+		player.EXP_restant = courbe_exp(n + 1) - player.EXP
+		
+		if update {
+			player.PV_Max = round(update_stat(n, player.PV_c))
+			player.PM_Max = round(update_stat(n, player.PM_c))
+			player.PV = player.PV_Max
+			player.PM = player.PM_Max
+			player.real_attack = round(update_stat(n, player.attack_c))
+			player.real_magic_attack = round(update_stat(n, player.magic_attack_c))
+			player.real_defense = round(update_stat(n, player.defense_c))
+			player.real_magic_defense = round(update_stat(n, player.magic_defense_c))
+			player.accuracy = round(update_stat(n, player.accuracy_c))
+			player.agility = round(update_stat(n, player.agility_c))
+		}
+		
 	}
 }
 	
-function call_object(object, determinant = 0, quantity = 1) {
+function call_object(object, determinant = 0, quantity = 1, maj = false, letter = false) {
 	if quantity > 1 {
-		var word = object.name_conj[1]
-		word = string(quantity) + " " + word
+		if object.name_conj[1] == "s" {
+			var word = object.name + "s"
+		} else {
+			var word = object.name_conj[1]
+		}
+		if determinant == "number" {
+			word = string(quantity) + " " + word
+		} else if determinant == "un" {
+			word = "des " + word
+		} else if determinant == "le" {
+			word = "les " + word
+		}
 	} else {
 		var word = object.name
 		if determinant == 0 {
-			var carac = ord(string_char_at(word, 1))
-			word = string_delete(word, 1, 1)
-			word = chr(carac-32) + word
-		} else {
-			if object.name_conj[0] == 0 {
+			maj = true
+		} else if determinant == "un" || determinant == "number" {
+			if object.name_conj[0] == "masc" {
 				word = "un " + word
 			} else {
 				word = "une " + word
 			}
+		} else if determinant == "le" {
+			var carac = ord(string_char_at(word, 1))
+			if research_array(["a", "e", "o", "i", "u", "y", "é"], carac) {
+				word = "l'" + word
+			} else if object.name_conj[0] == "masc" {
+				word = "le " + word
+			} else {
+				word = "la " + word
+			}
+		} else if determinant == "de" {
+			var carac = ord(string_char_at(word, 1))
+			if research_array(["a", "e", "o", "i", "u", "y"], carac) {
+				word = "de l'" + word
+			} else if object.name_conj[0] == "masc" {
+				word = "du " + word
+			} else {
+				word = "de la " + word
+			}
 		}
+		if variable_instance_exists(object, "letter") && letter {
+			word += object.letter
+		}
+	}
+	if maj {
+		var carac = ord(string_char_at(word, 1))
+		word = string_delete(word, 1, 1)
+		word = chr(carac-32) + word
 	}
 	return word
 }
