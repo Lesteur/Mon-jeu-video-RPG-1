@@ -11,6 +11,7 @@ equip1[? "hand_object"] = global.basic_shield
 
 global.Luke = {
 	name : "Luke",
+	name_conj : ["masc", "propre"],
 	classe : "Epéiste",
 	Num : 0,
 
@@ -63,13 +64,14 @@ global.Luke = {
 	sprite_walk_left : Luke_walk_left,
 	sprite_walk_right : Luke_walk_right,
 	
-	Basic_attack : crea_skill("Taillade", 0, Atk_normale, 20, 1, 1, 0, "weapon", "weapon", 0),
+	Basic_attack : crea_skill("Taillade", 0, Atk_normale, 20, 1, 1, "", "<player> attaque !", "weapon", "weapon", 0, "weapon", "weapon"),
 
 	skills : [global.sk_focus_attack, global.sk_strikblade],
 
 	weakness : [],
 	strength : []
 }
+set_equipment(global.Luke, false)
 
 var equip2 = ds_map_create()
 equip2[? "equip_1"] = global.basic_armour
@@ -80,6 +82,7 @@ equip2[? "hand_object"] = global.basic_shield
 
 global.Matt = {
 	name : "Matthieu",
+	name_conj : ["masc", "propre"],
 	classe : "Mage",
 	Num : 1,
 
@@ -132,13 +135,14 @@ global.Matt = {
 	sprite_walk_left : Matt_walk_left,
 	sprite_walk_right : Matt_walk_right,
 	
-	Basic_attack : crea_skill("Coup de bâton", 0, Atk_normale, 20, 1, 1, 0, "weapon", "weapon", 0),
+	Basic_attack : crea_skill("Coup de bâton", 0, Atk_normale, 20, 1, 1, "", "<player> attaque !", "weapon", "weapon", 0, "weapon", "weapon"),
 
 	skills : [global.sk_fireball, global.sk_iceblock, global.sk_shock, global.sk_fountain, global.sk_heal],
 
 	weakness : [],
 	strength : []
 }
+set_equipment(global.Matt, false)
 
 var equip3 = ds_map_create()
 equip3[? "equip_1"] = global.basic_armour
@@ -149,6 +153,7 @@ equip3[? "hand_object"] = [global.steel_arrow, 2]
 
 global.Arthur = {
 	name : "Arthur",
+	name_conj : ["masc", "propre"],
 	classe : "Archer",
 	Num : 2,
 
@@ -201,13 +206,14 @@ global.Arthur = {
 	sprite_walk_left : Arthur_walk_left,
 	sprite_walk_right : Arthur_walk_right,
 	
-	Basic_attack : crea_skill("Tir de flèche", 0, Atk_bow, 15, 1, 1, 0, "weapon", "weapon", 0),
+	Basic_attack : crea_skill("Tir de flèche", 0, Atk_bow, 15, 1, 1, "", "<player> attaque !", "weapon", "weapon", 0, "weapon", "weapon"),
 
 	skills : [global.sk_focus_attack],
 
 	weakness : [],
 	strength : []
 }
+set_equipment(global.Arthur, false)
 
 global.characters = [global.Luke, global.Matt, global.Arthur]
 global.team_v = [global.Luke, global.Matt, global.Arthur]

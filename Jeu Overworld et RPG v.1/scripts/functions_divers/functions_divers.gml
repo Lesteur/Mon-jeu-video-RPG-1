@@ -94,7 +94,8 @@ function fiche_defil(x, y, player, defilement = 30, orient = 1) {
 	var c = orient*(400 + 0.5333*power(l, 2) - 29.333*l)
 	draw_set_valign(fa_bottom)
 	draw_set_halign(fa_right)
-	draw_sprite(fiche_exp, player.Num, x+c, y)
+	draw_sprite(fiche_exp, 0, x+c, y)
+	draw_sprite(characters_interface, player.Num, x+3+c, y+22)
 	draw_set_font(Font_menu)
 	text_sha(x+96+c, y+15, "Niv. " + string(player.Niveau))
 	var seuil = courbe_exp(player.Niveau+1) - courbe_exp(player.Niveau)
@@ -189,6 +190,9 @@ function def_exp(player, sound = false, update = true){
 }
 	
 function call_object(object, determinant = 0, quantity = 1, maj = false, letter = false) {
+	if object.name_conj[1] == "propre" {
+		return object.name
+	}
 	if quantity > 1 {
 		if object.name_conj[1] == "s" {
 			var word = object.name + "s"

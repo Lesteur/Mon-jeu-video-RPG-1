@@ -1,4 +1,4 @@
-function draw_formation(){
+function draw_formation(m = 0){
 	
 	draw_set_color(c_black)
 	draw_set_alpha(0.5)
@@ -35,11 +35,14 @@ function draw_formation(){
 	for (var i = 0; i < array_length(team_form); i++) {
 		var char = team_form[i]
 		
-		draw_sprite(fiche_formation, char.Num, 266, 26+i*44)
-		
 		if ally_form == i {
-			draw_sprite(fiche_formation_light, char.Num, 266, 26+i*44)
+			draw_sprite(fiche_formation_light, 0, 266, 26+i*44)
+		} else {
+			draw_sprite(fiche_formation, 0, 266, 26+i*44)
 		}
+		
+		draw_sprite(menu_formation_cursor, 0, 266, 26+44*choice_form)
+		draw_sprite(characters_interface, char.Num, 278, 62+i*44)
 		
 		draw_set_font(Font_mini)
 		
@@ -50,10 +53,10 @@ function draw_formation(){
 		
 		draw_set_font(Font_menu)
 		
-		draw_text(316, 51+44*i, string(char.PV)+"/"+string(char.PV_Max))
+		text_sha(316, 51+44*i, string(char.PV)+"/"+string(char.PV_Max))
 		draw_healthbar(316, 49+44*i, 360, 52+44*i, PV_ally, c_black, c_black, c_black, 1, 0, 0)
 	
-		draw_text(316, 61+44*i, string(char.PM)+"/"+string(char.PM_Max))
+		text_sha(316, 61+44*i, string(char.PM)+"/"+string(char.PM_Max))
 		draw_healthbar(316, 59+44*i, 360, 62+44*i, PM_ally, c_black, c_black, c_black, 1, 0, 0)
 		
 		text_sha(380, 37+i*44, string(char.attack))
@@ -62,9 +65,7 @@ function draw_formation(){
 		text_sha(380, 64+i*44, string(char.magic_defense))
 	}
 	
-	draw_sprite(menu_formation_cursor, 0, 266, 26+44*choice_form)
-	
-	if menu[menu_i] == "formation_c" {
+	if menu[menu_i] == "formation_c" && m == 0 {
 		draw_set_font(Font_mini)
 		draw_set_color(c_black)
 		draw_sprite(menu_formation_c, 0, 200, 140)

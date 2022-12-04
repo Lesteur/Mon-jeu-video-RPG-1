@@ -22,7 +22,7 @@ function enemy_turn(enemy){
 		
 		if !act {
 			script_execute(choice_enemy.funct, enemy, enemy_target, choice_enemy)
-			message_monitor = string_replace(choice_enemy.description_1, "<enemy>", call_object(enemy, "le", 1, true, true))
+			message_monitor = string_replace(choice_enemy.description_2, "<enemy>", call_object(enemy, "le", 1, true, true))
 		}
 	}
 

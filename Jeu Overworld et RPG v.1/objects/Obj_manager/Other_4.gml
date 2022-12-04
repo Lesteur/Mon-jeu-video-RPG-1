@@ -1,7 +1,7 @@
 TransitionEffect("out")
 cc = 0
 global.interact = 1
-if room != room_battlefield_forest {
+if room != room_battlefield_forest || room != room_menu {
 	alarm[0] = 25
 }
 

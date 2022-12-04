@@ -7,13 +7,13 @@ function prepare_action(comp){
 		cible = [cible]
 	}
 	
-	if comp.effect == noone {
+	if comp.effect == "weapon" {
 		effect_target = lanceur.effect
 	} else {
 		effect_target = comp.effect
 	}
 	
-	if comp.sound == noone {
+	if comp.sound == "weapon" {
 		audio_play_sound(lanceur.sound, 6, false)
 	} else if comp.sound != false {
 		audio_play_sound(comp.sound, 6, false)
@@ -123,7 +123,7 @@ function Atk_normale(lance, cibl, comp){
 	type_attack = "attack"
 	
 	prepare_action(comp)
-	damage_calcul(comp)
+	damage_calcul(comp, comp.puissance)
 	
 	alarm[1] = 10
 	alarm[3] = 70
@@ -137,7 +137,7 @@ function Atk_bow(lance, cibl, comp){
 	type_attack = "attack"
 	
 	prepare_action(comp)
-	damage_calcul(comp)
+	damage_calcul(comp, comp.puissance)
 	
 	for (var i = 0; i < array_length(cible); i++) {
 		var direct = point_direction(lanceur.x, lanceur.y, cible[i].x, cible[i].y)
@@ -158,7 +158,7 @@ function Atk_bow(lance, cibl, comp){
 	if lanceur.equipment[? "hand_object"][1] == 0 {
 		lanceur.equipment[? "hand_object"] = [global.wood_arrow, -1]
 		with lanceur {
-			set_equipment()
+			set_equipment(id)
 		}
 	}
 }
@@ -183,10 +183,26 @@ function Atk_puiss(lance, cibl, comp){
 	type_attack = "attack"
 	
 	prepare_action(comp)
-	damage_calcul(comp)
+	damage_calcul(comp, comp.puissance)
 	
 	alarm[1] = 20
 	alarm[3] = 80
+}
+	
+function Atk_Set_Inc_Stat(lance, cibl, comp){
+	act = true
+	lanceur = lance
+	cible = cibl
+	lanceur.animation = 1
+	type_attack = "attack"
+	
+	prepare_action(comp)
+	damage_calcul(comp, comp.puissance[0])
+	attack_increase(comp.puissance[1])
+	attack_status(comp.puissance[2])
+	
+	alarm[1] = 10
+	alarm[3] = 70
 }
 
 function Atk_magique(lance, cibl, comp){
@@ -198,7 +214,7 @@ function Atk_magique(lance, cibl, comp){
 	audio_play_sound(snd_cast_spell, 6, false)
 	
 	prepare_action(comp)
-	damage_calcul(comp)
+	damage_calcul(comp, comp.puissance)
 	functions_magic(comp)
 	
 }

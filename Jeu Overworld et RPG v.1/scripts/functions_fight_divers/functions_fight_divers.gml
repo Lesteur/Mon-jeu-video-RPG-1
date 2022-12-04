@@ -24,7 +24,52 @@ function lower_boosts(team, n) {
 	}
 }
 
-function set_equipment() {
+function set_equipment(player, weap=true) {
+	var array = ds_map_keys_to_array(player.equipment)
+	player.attack = player.real_attack
+	player.magic_attack = player.real_magic_attack
+	player.defense = player.real_defense
+	player.magic_defense = player.real_magic_defense
+	player.agility = player.real_agility
+	player.accuracy = player.real_accuracy
+	for (var i = 0; i < array_length(array); i++) {
+		if !is_array(player.equipment[? array[i]]) {
+			player.attack += player.equipment[? array[i]].attack
+			player.magic_attack += player.equipment[? array[i]].magic_attack
+			player.defense += player.equipment[? array[i]].defense
+			player.magic_defense += player.equipment[? array[i]].magic_defense
+			player.accuracy += player.equipment[? array[i]].accuracy
+			player.agility += player.equipment[? array[i]].agility
+		} else {
+			player.attack += player.equipment[? array[i]][0].attack
+		}
+	}
+	if player.attack < 1 {
+		player.attack = 1
+	}
+	if player.magic_attack < 1 {
+		player.magic_attack = 1
+	}
+	if player.defense < 1 {
+		player.defense = 1
+	}
+	if player.magic_defense < 1 {
+		player.magic_defense = 1
+	}
+	if player.accuracy < 1 {
+		player.accuracy = 1
+	}
+	if player.agility < 1 {
+		player.agility = 1
+	}
+	if weap {
+		player.effect = player.weapon.effect
+		player.element = player.weapon.element
+		player.sound = player.weapon.sound
+	}
+}
+
+function set_equipment2() {
 	var array = ds_map_keys_to_array(equipment)
 	attack = real_attack
 	magic_attack = real_magic_attack
@@ -235,6 +280,31 @@ function EXP_mult(grade) {
 		return 1.2
 	}
 	return 1
+}
+	
+function description_skill(player, sk) {
+	if sk.type_attack == "weapon" {
+		var t = player.weapon.type_attack
+	} else {
+		var t = sk.type_attack
+	}
+	t = string(global.icon[? t])
+	if sk.element == "weapon" {
+		var e = player.weapon.element
+	} else {
+		var e = sk.element
+	}
+	e = string(global.icon[? e])
+	if sk.funct == Increase {
+		var word = " Effets :"
+		for (var i = 0; i < array_length(sk.puissance); i+= 3) {
+			var effect = string(global.icon[? sk.puissance[i]])
+			word += " <e"+effect+"> " + string(sk.puissance[i+1])
+		}
+	} else {
+		var word = " Puissance : "+string(sk.puissance)
+	}
+	return "#Type : <e"+t+"> Élément : <e"+e+">" + word
 }
 
 function param_fight(variable) {

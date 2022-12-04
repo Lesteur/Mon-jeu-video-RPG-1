@@ -32,7 +32,8 @@ function player_turn(player) {
 				var m = choice_skill + n*choice_skill_page
 				choice_skill = select_choice(choice_skill, l, false)
 				choice_skill_page = select_choice(choice_skill_page, pages, true)
-				message_monitor = player.skills[m].description_1
+				var sk = player.skills[m]
+				message_monitor = sk.description_1 + description_skill(player, sk)
 				break
 			case "objects":
 				var len = array_length(global.inventory)

@@ -15,6 +15,7 @@ function crea_object(nam, nam_conj, func, puiss, port, descript, sprite, eff, sn
 global.potion_heal_1 = {
 	name : "potion de soin",
 	name_conj : ["fem", "potions de soin"],
+	storage : "inventory",
 	funct : PV_recup,
 	puissance : 20,
 	portee : 0,
@@ -27,6 +28,7 @@ global.potion_heal_1 = {
 global.potion_energy_1 = {
 	name : "potion d'énergie",
 	name_conj : ["fem", "potions d'énergie"],
+	storage : "inventory",
 	funct : PM_recup,
 	puissance : 10,
 	portee : 0,
@@ -39,6 +41,7 @@ global.potion_energy_1 = {
 global.mushroom_poison = {
 	name : "amanite poisonite",
 	name_conj : ["fem", "amanites poisonite"],
+	storage : "inventory",
 	funct : Set_status,
 	puissance : ["poison", 1, 2],
 	portee : 1,
@@ -51,6 +54,7 @@ global.mushroom_poison = {
 global.stone_burn = {
 	name : "pierre charbon",
 	name_conj : ["fem", "pierres charbon"],
+	storage : "inventory",
 	funct : Set_status,
 	puissance : ["burn", 1, 2],
 	portee : 1,
@@ -63,10 +67,11 @@ global.stone_burn = {
 global.star_freeze = {
 	name : "étoile de gel",
 	name_conj : ["fem", "étoiles de gel"],
+	storage : "inventory",
 	funct : Set_status,
 	puissance : ["freeze", 1, 2],
 	portee : 1,
-	description_1 : "Ce petit cristal en forme d'étoile peut geler quelqu'un instantanément si elle est lancée.",
+	description_1 : "Ce petit cristal en forme d'étoile peut geler quelqu'un instantanément si #elle est lancée.",
 	graphisme_1 : 3,
 	effect : basic_sword_effect,
 	sound : snd_heal
@@ -75,10 +80,11 @@ global.star_freeze = {
 global.stone_volt = {
 	name : "pierre volt",
 	name_conj : ["fem", "pierres volt"],
+	storage : "inventory",
 	funct : Set_status,
 	puissance : ["paralysis", 1, 2],
 	portee : 1,
-	description_1 : "Cette pierre en forme de cylindre contient pas mal d'énergie électrique malgré sa petite taille.",
+	description_1 : "Cette pierre en forme de cylindre contient pas mal d'énergie électrique #malgré sa petite taille.",
 	graphisme_1 : 4,
 	effect : effect_paralysis,
 	sound : snd_heal

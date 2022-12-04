@@ -75,6 +75,11 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2D00C286","properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"loot","path":"objects/Obj_chest/Obj_chest.yy",},"objectId":{"name":"Obj_chest","path":"objects/Obj_chest/Obj_chest.yy",},"value":"[global.potion_energy_1, 2]",},
           ],"isDnd":false,"objectId":{"name":"Obj_chest","path":"objects/Obj_chest/Obj_chest.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":140.0,"y":360.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_421FADD","properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"room_n","path":"objects/Obj_enemy_overworld/Obj_enemy_overworld.yy",},"objectId":{"name":"Obj_enemy_overworld","path":"objects/Obj_enemy_overworld/Obj_enemy_overworld.yy",},"value":"Zone_true_1",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"data","path":"objects/Obj_enemy_overworld/Obj_enemy_overworld.yy",},"objectId":{"name":"Obj_enemy_overworld","path":"objects/Obj_enemy_overworld/Obj_enemy_overworld.yy",},"value":"1",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"enemies","path":"objects/Obj_enemy_overworld/Obj_enemy_overworld.yy",},"objectId":{"name":"Obj_enemy_overworld","path":"objects/Obj_enemy_overworld/Obj_enemy_overworld.yy",},"value":"[global.germicroque, global.green_blob]",},
+          ],"isDnd":false,"objectId":{"name":"Obj_enemy_overworld","path":"objects/Obj_enemy_overworld/Obj_enemy_overworld.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":true,"inheritItemSettings":false,"x":300.0,"y":380.0,},
       ],"visible":true,"depth":0,"userdefinedDepth":true,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":20,"gridY":20,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"Tiles_4","tilesetId":{"name":"TileSet_1","path":"tilesets/TileSet_1/TileSet_1.yy",},"x":0,"y":0,"tiles":{"TileDataFormat":1,"SerialiseWidth":24,"SerialiseHeight":30,"TileCompressedData":[
 -178,-2147483648,1,53,-23,-2147483648,1,53,-23,-2147483648,5,53,-2147483648,-2147483648,53,53,-19,-2147483648,4,53,-2147483648,-2147483648,53,-161,
@@ -126,6 +131,7 @@
     {"name":"inst_6A2E9BEE","path":"rooms/Zone_true_1/Zone_true_1.yy",},
     {"name":"inst_3AC88275","path":"rooms/Zone_true_1/Zone_true_1.yy",},
     {"name":"inst_2D00C286","path":"rooms/Zone_true_1/Zone_true_1.yy",},
+    {"name":"inst_421FADD","path":"rooms/Zone_true_1/Zone_true_1.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

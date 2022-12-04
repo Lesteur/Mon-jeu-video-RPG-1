@@ -15,8 +15,9 @@ function draw_text_special(text, x, y, w, z) {
 	 //Get current letter
  
 		var letter = string_char_at(text, cc)
+		var l_w = string_width(string_hash_to_newline(string_char_at(text, cc)))
 
-		if (widt > w) || (letter == "#") {
+		if (widt + l_w > w) || (letter == "#") {
 			widt = 0
 			heig += z
 			if (letter == " ") {
@@ -25,7 +26,7 @@ function draw_text_special(text, x, y, w, z) {
 		}
  
 	switch(letter) {
-		case "(":
+		case "<":
 			cx = 3
 			break
 		case "@":
@@ -135,21 +136,26 @@ function draw_text_special(text, x, y, w, z) {
 				draw_text_color(x + widt, y + heig, string_hash_to_newline(letter), col, col, col, col, shift+random_range(-1,1));
 				break
 		}
-		widt += string_width(string_hash_to_newline(string_char_at(text, cc)))
+		widt += l_w
 	} else if cx == 3 {
 		cc ++
 		var code = ""
 		var type = string_char_at(text, cc)
 		cc ++
 		var letter = string_char_at(text, cc)
-		while (letter != ")") && cc < string_length(text) {
+		while (letter != ">") && cc < string_length(text) {
 			code += letter
 			cc ++
 			var letter = string_char_at(text, cc)
 		}
-		if letter == ")" {
-			draw_sprite_ext(sprite_objects, real(code), x + widt, y + heig - 15, 1, 1, 0, c_white, 1)
-			widt += 15
+		if letter == ">" {
+			if type = "o" {
+				draw_sprite_ext(sprite_objects, real(code), x + widt, y + heig - 15, 1, 1, 0, c_white, 1)
+				widt += 15
+			} else if type = "e" {
+				draw_sprite_ext(icons, real(code), x + widt, y + heig - 13, 1, 1, 0, c_white, 1)
+				widt += 13
+			}
 		}
 	}
        

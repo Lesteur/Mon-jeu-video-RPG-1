@@ -28,6 +28,7 @@
   "gridY": 0,
   "frames": [
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"3386e8e9-db98-44f5-a27f-a4ca1f0484b0",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"b9e3eb4b-2eef-461c-a1c9-d6ed758415f4",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"acf2d2fc-03c2-4122-bf06-9bbeb20ba629",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"6f4b3e07-65fc-4a5a-849f-6939558ab5eb",},
   ],
@@ -41,14 +42,15 @@
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
-    "length": 3.0,
+    "length": 4.0,
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"1ebb295f-5e55-4e24-8a57-b1b722aca916","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"3386e8e9-db98-44f5-a27f-a4ca1f0484b0","path":"sprites/fiche_stats_fight/fiche_stats_fight.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"d14cfe20-3504-4afd-a8fb-f63c720205bd","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"acf2d2fc-03c2-4122-bf06-9bbeb20ba629","path":"sprites/fiche_stats_fight/fiche_stats_fight.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"105ca367-360f-4220-89b1-3ec0b562d21a","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"6f4b3e07-65fc-4a5a-849f-6939558ab5eb","path":"sprites/fiche_stats_fight/fiche_stats_fight.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"98be7a26-5bdf-4a5a-9ea2-74bf15472947","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"b9e3eb4b-2eef-461c-a1c9-d6ed758415f4","path":"sprites/fiche_stats_fight/fiche_stats_fight.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"d14cfe20-3504-4afd-a8fb-f63c720205bd","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"acf2d2fc-03c2-4122-bf06-9bbeb20ba629","path":"sprites/fiche_stats_fight/fiche_stats_fight.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"105ca367-360f-4220-89b1-3ec0b562d21a","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"6f4b3e07-65fc-4a5a-849f-6939558ab5eb","path":"sprites/fiche_stats_fight/fiche_stats_fight.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,

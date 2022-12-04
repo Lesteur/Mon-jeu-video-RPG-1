@@ -30,9 +30,9 @@ function set_weak1(array, type, element) {
 	}
 }
 
-function damage_calcul(comp){
+function damage_calcul(comp, puiss){
 	
-	var puiss = comp.puissance
+	//var puiss = comp.puissance
 	
 	var typ = comp.type_attack
 	if typ == "weapon" {

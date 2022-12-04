@@ -8,7 +8,7 @@ function draw_victory() {
 	draw_rectangle_color(x_p, 41, 450+x_p, 172, c_black, c_black, c_black, c_black, false)
 	draw_set_alpha(1)
 	var t = array_length(global.team)
-	for (var i = 0; i < array_length(global.team); i++) {
+	for (var i = 0; i < t; i++) {
 		var x_p = floor(i/4)*105 + (i mod 4)*13
 		var y_p = (i mod 4)*29
 		fiche_defil(4 + x_p, 51 + y_p, global.team[i], defil-10*(t-i-1), -1)

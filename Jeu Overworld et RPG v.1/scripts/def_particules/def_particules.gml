@@ -42,7 +42,7 @@ global.part_Fireball = p
 //Explosion
 var p = part_type_create()
 part_type_sprite(p, effect_explosion, true, true, false)
-part_type_life(p, 20, 20)
+part_type_life(p, 25, 25)
 part_type_size(p, 1, 1, 0, 0)
 
 global.part_Explosion = p

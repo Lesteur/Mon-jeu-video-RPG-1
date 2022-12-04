@@ -1,0 +1,1 @@
+room_goto(global.position_room)

@@ -23,8 +23,6 @@ for (var i = 0; i < array_length(team_enemy_a); ++i;) {
 
 // Draw de l'interface et des vie des persos
 
-draw_sprite(monitor_fight, 0, 0, 560)
-
 for (var i = 0; i < array_length(global.team); ++i;) {
 	var m_effect = menu_effect
 	if i != turn {
@@ -37,12 +35,13 @@ for (var i = 0; i < array_length(global.team); ++i;) {
 		draw_sprite_ext(menu_1, choice, 100*i, 221, 0.5, 0.5, 0, c_white, 1)
 	}
 	
-	draw_sprite(fiche_stats_fight, global.team[i].Num, i*100, 221-m_effect)
+	draw_sprite(fiche_stats_fight, 0, i*100, 221-m_effect)
+	draw_sprite(characters_interface, global.team[i].Num, i*100 + 12, 218-m_effect)
 	
-	draw_text(50+100*i, 206-m_effect, string(global.team[i].PV)+"/"+string(global.team[i].PV_Max))
+	text_sha(50+100*i, 206-m_effect, string(global.team[i].PV)+"/"+string(global.team[i].PV_Max))
 	draw_healthbar(50+100*i, 204-m_effect, 94+100*i, 207-m_effect, PV_allies[i], c_black, c_black, c_black, 1, 0, 0)
 	
-	draw_text(50+100*i, 216-m_effect, string(global.team[i].PM)+"/"+string(global.team[i].PM_Max))
+	text_sha(50+100*i, 216-m_effect, string(global.team[i].PM)+"/"+string(global.team[i].PM_Max))
 	draw_healthbar(50+100*i, 214-m_effect, 94+100*i, 217-m_effect, PM_allies[i], c_black, c_black, c_black, 1, 0, 0)
 }
 
@@ -65,7 +64,7 @@ if ((menu[menu_i] == "target") || (menu[menu_i] == "skills_target") || (menu[men
 	
 	if all_target == false || all_target == noone {
 		if team_target == team_enemy_a {
-			draw_healthbar(135, 235, 205, 240,PV_enemies[target], c_red, c_green, c_green, 0, 1, 0)
+			draw_healthbar(135, 237, 205, 242, PV_enemies[target], c_red, c_green, c_green, 0, 1, 1)
 		}
 	}
 	
@@ -113,16 +112,20 @@ if ((menu[menu_i] == "target") || (menu[menu_i] == "skills_target") || (menu[men
 
 // Affichage du tour
 
-draw_set_valign(fa_top)
+draw_set_valign(fa_bottom)
 draw_set_halign(fa_left)
 draw_set_font(Font_mini)
+draw_set_color(c_black)
 
 if message_quick != false && message_quick_t > 0 {
-	draw_text_ext(15, 232, string_hash_to_newline(message_quick), 15, 385)
+	draw_text_special(message_quick, 11, 246, 428, 15)
 	message_quick_t --
 } else {
-	draw_text_ext(15, 232, string_hash_to_newline(message_monitor), 15, 385)
+	draw_text_special(message_monitor, 11, 246, 400-22, 15)
 }
+
+draw_set_valign(fa_top)
+draw_set_color(c_white)
 
 // Affichage des effets et des dégâts
 

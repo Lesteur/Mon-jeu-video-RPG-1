@@ -1,7 +1,7 @@
 function use_skills(player, skill){
 
 	if player.PM >= skill.PM {
-		var mess = "<player> lance <skill> !"
+		var mess = skill.description_2
 		mess = string_replace(mess, "<player>", player.name)
 		mess = string_replace(mess, "<skill>", skill.name)
 		if skill.portee == 0 && menu[menu_i] == "skills" {

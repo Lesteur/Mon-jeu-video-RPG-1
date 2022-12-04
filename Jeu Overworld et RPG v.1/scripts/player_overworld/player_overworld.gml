@@ -93,20 +93,27 @@ function player_overworld() {
 	
 		ds_queue_enqueue(queue, [hsp, vsp, sp])
 	}
-
-	if keyboard_check_pressed(ord("S")) {
-		ini_open("Jeu.ini")
-		ini_write_real("Progression", "Position_x", x)
-		ini_write_real("Progression", "Position_y", y)
-		ini_close()
+	
+	if keyboard_check_pressed(ord("B")) {
+		global.interact = 1
+		global.position_room = room
+		TransitionEffect("in")
+		alarm[1] = 25
 	}
 
-	if (keyboard_check_pressed(ord("L"))) {
-		ini_open("Jeu.ini")
-		x = ini_read_real("Progression", "Position_x", 0)
-		y = ini_read_real("Progression", "Position_y", 0)
-		ini_close()
-	}
+	//if keyboard_check_pressed(ord("S")) {
+	//	ini_open("Jeu.ini")
+	//	ini_write_real("Progression", "Position_x", x)
+	//	ini_write_real("Progression", "Position_y", y)
+	//	ini_close()
+	//}
+
+	//if (keyboard_check_pressed(ord("L"))) {
+	//	ini_open("Jeu.ini")
+	//	x = ini_read_real("Progression", "Position_x", 0)
+	//	y = ini_read_real("Progression", "Position_y", 0)
+	//	ini_close()
+	//}
 	
 	//window_resize()
 

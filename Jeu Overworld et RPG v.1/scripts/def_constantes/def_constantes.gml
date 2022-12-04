@@ -2,11 +2,30 @@ global.t = 0
 
 global.icon = ds_map_create()
 global.icon[? "heal"] = 0
+
+global.icon[? "pm"] = 1
+global.icon[? "attack"] = 2
+global.icon[? "defense"] = 3
+global.icon[? "magic_attack"] = 4
+global.icon[? "magic_defense"] = 5
+global.icon[? "accuracy"] = 6
+global.icon[? "agility"] = 7
+
 global.icon[? "fire"] = 8
 global.icon[? "ice"] = 9
 global.icon[? "thunder"] = 10
-global.icon[? "slash"] = 16
-global.icon[? "object"] = 20
+global.icon[? "water"] = 11
+global.icon[? "wind"] = 12
+global.icon[? "earth"] = 13
+global.icon[? "dark"] = 14
+global.icon[? "light"] = 15
+global.icon[? "chaos"] = 16
+global.icon[? "slash"] = 17
+global.icon[? "pierce"] = 18
+global.icon[? "pounding"] = 19
+global.icon[? "magic"] = 20
+global.icon[? false] = 21
+global.icon[? "unknown"] = 22
 
 global.color_element = ds_map_create()
 global.color_element[? false] = c_white

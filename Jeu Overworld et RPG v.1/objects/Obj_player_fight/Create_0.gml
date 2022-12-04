@@ -10,7 +10,7 @@ if shield != noone {
 	shield.player = self
 }
 
-set_equipment()
+set_equipment(id)
 
 cc = 0
 ss = 0
