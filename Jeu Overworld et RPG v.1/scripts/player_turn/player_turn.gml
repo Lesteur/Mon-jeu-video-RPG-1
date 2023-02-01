@@ -39,7 +39,7 @@ function player_turn(player) {
 				var len = array_length(global.inventory)
 				var l = (n-1)*2
 				var pages = ceil(len/(n*2)) - 1
-				if choice_objets_page == pages && len mod n != 0 {
+				if choice_objets_page == pages && len mod (n*2) != 0 {
 					l = (len mod (n*2)) - 2
 					if choice_objets > l {
 						choice_objets = l-1
@@ -172,22 +172,6 @@ function player_turn(player) {
 			ally_form = noone
 			choice_form = 0
 			audio_play_sound(snd_false, 5, false)
-		}
-	
-		if (keyboard_check_pressed(vk_left) || keyboard_check_pressed(vk_right)) && (menu[menu_i] == "target" || menu[menu_i] == "skills_target" || menu[menu_i] == "objects_target") {
-			if team_target == team_a {
-				team_target = team_enemy_a
-			} else {
-				team_target = team_a
-			}
-		
-			if target >= array_length(team_target) {
-				target = 0
-			}
-			
-			if array_length(team_target) == 1 && all_target = true {
-				all_target = noone
-			}
 		}
 
 		if (menu_effect < 19) {

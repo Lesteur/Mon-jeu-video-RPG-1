@@ -24,6 +24,7 @@ function script_menu_formation() {
 		menu_i --
 		ally_form = noone
 		choice_form = 0
+		Obj_manager.chang_team = true
 		audio_play_sound(snd_select, 7, false)
 	}
 }

@@ -51,11 +51,13 @@ dispo_team()
 team_a = global.team //Equipe héros excluant les KO
 team_enemy_a = global.team_enemy //Equipe monstres excluant les KO
 
-team_form = global.team //Equipe de la formation
+team_form = [] //Equipe de la formation
+array_copy(team_form, 0, global.team, 0, array_length(global.team))
 
 team_target = team_a //équipe à cibler
 turn = 0 //Tour par membre
 turn_team = global.team //Equipe qui joue actuellement
+
 team_KO = 0 //Membres de l'équipe KO
 enemy_KO = 0 //Monstres KO
 

@@ -18,12 +18,13 @@ function use_objects(player, object){
 		player.animation = 5
 		player.image_index = 0
 		var t = choice_objets + n*choice_objets_page*2
-		global.inventory[t+1] --
-		if global.inventory[t+1] == 0 {
-			array_delete(global.inventory, t, 2)
-		}
+		remove_inventory(t, "inventory")
+		//global.inventory[t+1] --
+		//if global.inventory[t+1] == 0 {
+		//	array_delete(global.inventory, t, 2)
+		//}
 		var array = team_target[target].weakness
-		var w = noone//check_weakness(array, "object", object.true_name)
+		var w = noone
 		if w != noone {
 			script_execute(array[w][2], player, team_target[target], array[w][3])
 		} else {

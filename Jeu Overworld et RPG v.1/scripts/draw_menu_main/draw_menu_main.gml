@@ -42,5 +42,7 @@ function draw_menu_main() {
 	
 		text_sha(50+100*i, 241, "Niveau "+string(player.Niveau))
 	}
+	
+	text_sha(160, 150, mess)
 
 }

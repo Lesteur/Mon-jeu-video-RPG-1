@@ -1,13 +1,14 @@
-database_armours()
+database_equip_1()
 database_weapons()
 database_skills()
 
 var equip1 = ds_map_create()
-equip1[? "equip_1"] = global.basic_armour
-equip1[? "equip_2"] = global.basic_boots
-equip1[? "equip_3"] = global.basic_gloves
 equip1[? "weapon"] = global.basic_sword
 equip1[? "hand_object"] = global.basic_shield
+equip1[? "protection"] = global.basic_armour
+equip1[? "equip_1"] = global.basic_boots
+equip1[? "equip_2"] = global.basic_gloves
+equip1[? "equip_3"] = noone
 
 global.Luke = {
 	name : "Luke",
@@ -16,11 +17,11 @@ global.Luke = {
 	Num : 0,
 
 	PV_Max : 80,
-	PV : 80,
+	PV : 40,
 	PV_c : [2.143, 20.5, 57.4],
 	
-	PM_Max : 15,
-	PM : 15,
+	PM_Max : 10,
+	PM : 10,
 	PM_c : [0.113, 6.5, 3.4],
 
 	real_attack : 10,
@@ -64,7 +65,7 @@ global.Luke = {
 	sprite_walk_left : Luke_walk_left,
 	sprite_walk_right : Luke_walk_right,
 	
-	Basic_attack : crea_skill("Taillade", 0, Atk_normale, 20, 1, 1, "", "<player> attaque !", "weapon", "weapon", 0, "weapon", "weapon"),
+	Basic_attack : crea_skill("Taillade", 0, Atk_normale, 20, 1, 1, "", "<player> attaque !", 0, "weapon", "weapon", 0, "weapon", "weapon"),
 
 	skills : [global.sk_focus_attack, global.sk_strikblade],
 
@@ -74,9 +75,10 @@ global.Luke = {
 set_equipment(global.Luke, false)
 
 var equip2 = ds_map_create()
-equip2[? "equip_1"] = global.basic_armour
-equip2[? "equip_2"] = global.basic_boots
-equip2[? "equip_3"] = global.basic_gloves
+equip2[? "equip_1"] = global.basic_boots
+equip2[? "equip_2"] = global.basic_gloves
+equip2[? "equip_3"] = noone
+equip2[? "protection"] = global.basic_armour
 equip2[? "weapon"] = global.basic_staff
 equip2[? "hand_object"] = global.basic_shield
 
@@ -135,7 +137,7 @@ global.Matt = {
 	sprite_walk_left : Matt_walk_left,
 	sprite_walk_right : Matt_walk_right,
 	
-	Basic_attack : crea_skill("Coup de bâton", 0, Atk_normale, 20, 1, 1, "", "<player> attaque !", "weapon", "weapon", 0, "weapon", "weapon"),
+	Basic_attack : crea_skill("Coup de bâton", 0, Atk_normale, 20, 1, 1, "", "<player> attaque !", 0, "weapon", "weapon", 0, "weapon", "weapon"),
 
 	skills : [global.sk_fireball, global.sk_iceblock, global.sk_shock, global.sk_fountain, global.sk_heal],
 
@@ -145,9 +147,10 @@ global.Matt = {
 set_equipment(global.Matt, false)
 
 var equip3 = ds_map_create()
-equip3[? "equip_1"] = global.basic_armour
-equip3[? "equip_2"] = global.basic_boots
-equip3[? "equip_3"] = global.basic_gloves
+equip2[? "equip_1"] = global.basic_boots
+equip2[? "equip_2"] = global.basic_gloves
+equip2[? "equip_3"] = noone
+equip2[? "protection"] = global.basic_armour
 equip3[? "weapon"] = global.basic_bow
 equip3[? "hand_object"] = [global.steel_arrow, 2]
 
@@ -174,7 +177,7 @@ global.Arthur = {
 	real_defense : 10,
 	defense_c : [-0.0316, 6.8, 3.2],
 	
-	real_magic_defense : 5,
+	real_magic_defense : 15,
 	magic_defense_c : [0.0331, 5.3, 9.6],
 	
 	real_agility : 5,
@@ -206,7 +209,7 @@ global.Arthur = {
 	sprite_walk_left : Arthur_walk_left,
 	sprite_walk_right : Arthur_walk_right,
 	
-	Basic_attack : crea_skill("Tir de flèche", 0, Atk_bow, 15, 1, 1, "", "<player> attaque !", "weapon", "weapon", 0, "weapon", "weapon"),
+	Basic_attack : crea_skill("Tir de flèche", 0, Atk_bow, 15, 1, 1, "", "<player> attaque !", 0, "weapon", "weapon", 0, "weapon", "weapon"),
 
 	skills : [global.sk_focus_attack],
 

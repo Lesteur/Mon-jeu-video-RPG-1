@@ -1,9 +1,6 @@
 TransitionEffect("out")
 cc = 0
 global.interact = 1
-if room != room_battlefield_forest || room != room_menu {
-	alarm[0] = 25
-}
 
 // Go to target instance
 if (instance_exists(targetInstance)) {
@@ -50,4 +47,35 @@ if (instance_exists(targetInstance)) {
 	}
 	 // Clear target
 	 targetInstance = noone
+}
+
+if room != room_battlefield_forest || room != room_menu {
+	alarm[0] = 25
+}
+
+if chang_team {
+	for (var i = 0; i < array_length(global.team_v); i++) {
+		var inst = global.team_player[i]
+		var ps = global.team_v[i]
+		switch(inst.sprite_index) {
+			case inst.sprite_walk_bottom:
+				inst.sprite_index = ps.sprite_walk_bottom
+				break
+			case inst.sprite_walk_top:
+				inst.sprite_index = ps.sprite_walk_top
+				break
+			case inst.sprite_walk_left:
+				inst.sprite_index = ps.sprite_walk_left
+				break
+			case inst.sprite_walk_right:
+				inst.sprite_index = ps.sprite_walk_right
+				break
+		}
+		inst.sprite_walk_bottom = ps.sprite_walk_bottom
+		inst.sprite_walk_top = ps.sprite_walk_top
+		inst.sprite_walk_left = ps.sprite_walk_left
+		inst.sprite_walk_right = ps.sprite_walk_right
+		inst.list = [inst.sprite_walk_bottom, inst.sprite_walk_top, inst.sprite_walk_left, inst.sprite_walk_right]
+	}
+	chang_team = false
 }

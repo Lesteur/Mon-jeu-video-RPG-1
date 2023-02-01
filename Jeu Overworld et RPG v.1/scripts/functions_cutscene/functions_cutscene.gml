@@ -245,6 +245,11 @@ function cutscene_reset_allies() {
 	cutscene_end_action()
 }
 
+function cutscene_alarm(object, number, time) {
+	object.alarm[number] = time
+	cutscene_end_action()
+}
+
 function create_cutscene(t_scene) {
 	var inst = instance_create_layer(0, 0, "Instances_1", Obj_cutscene)
 	with (inst) {

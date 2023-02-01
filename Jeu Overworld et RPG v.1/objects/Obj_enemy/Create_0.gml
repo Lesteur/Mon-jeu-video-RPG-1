@@ -17,6 +17,8 @@ boost[? "magic_defense"] = [0, 0]
 boost[? "agility"] = [0, 0]
 boost[? "accuracy"] = [0, 0]
 
+booty = []
+array_copy(booty, 0, booty_n, 0, array_length(booty_n))
 for (var i = 0; i < array_length(booty); i+= 2) {
 	booty[i] = variable_global_get(booty[i])
 }

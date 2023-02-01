@@ -3,7 +3,7 @@ global.germicroque = {
 	name_conj : ["masc", "s"],
 	num : 1,
 	PV_Max : 500,
-	PV : 1,
+	PV : 500,
 	attack : 11,
 	magic_attack : 3,
 	defense : 9,
@@ -15,16 +15,16 @@ global.germicroque = {
 	sprite_fight_neutral : germicroque_neutral,
 	sprite_fight_hurt : germicroque_hurt,
 	sprite_fight_attack : germicroque_fight,
-	skills : [crea_skill("Photosynthèse", 0, PV_recup, 15, 0, 0, "", "<enemy> se soigne !", "heal", false, 0, effect_heal_pv),
-			  crea_skill("Esprit de bête", 0, Increase, ["attack", 1, 3], 0, 0, "", "<enemy> se renforce !", "increase", false, 0, effect_increase_attack),
-			  crea_skill("Croc carnivore", 0, Atk_normale, 15, 1, 1, "", "<enemy> attaque !", "bite", false, 0, effect_bite, snd_attack)],
+	skills : [crea_skill("Photosynthèse", 0, PV_recup, 15, 0, 0, "", "<enemy> se soigne !", 0, "heal", false, 0, effect_heal_pv),
+			  crea_skill("Esprit de bête", 0, Increase, ["attack", 1, 3], 0, 0, "", "<enemy> se renforce !", 0, "increase", false, 0, effect_increase_attack),
+			  crea_skill("Croc carnivore", 0, Atk_normale, 15, 1, 1, "", "<enemy> attaque !", 0, "bite", false, 0, effect_bite, snd_attack)],
 	skills_c : [[PV_inferior, [0.30]], [stats_inferior, ["attack", 0]]],
 	choice_enemy_skill : choice_enemy_conditions,
 	choice_enemy_target : choice_target_random,
 	weakness : [["type", "slash", "bonus_dmg", 0.5], ["element", "fire", "bonus_dmg", 1], ["element", "ice", "malus_dmg", 0.33], ["element", "thunder", "malus_dmg", 1], ["element", "water", "absorb_dmg", 1], ["alteration", "burn", "+", 0.5], ["alteration", "curse", "-", 0]],
 	gold : 20,
 	experience : 40,
-	booty : ["potion_heal_1", 1, "potion_energy_1", 1]
+	booty_n : ["potion_heal_1", 1, "potion_energy_1", 1]
 }
 
 global.green_blob = {
@@ -44,14 +44,14 @@ global.green_blob = {
 	sprite_fight_neutral : green_blob_neutral,
 	sprite_fight_hurt : green_blob_hurt,
 	sprite_fight_attack : green_blob_fight,
-	skills : [crea_skill("Régénération", 0, PV_recup, 50, 0, 0, "", "<enemy> se régénère !", "heal", false, 0, effect_heal_pv),
-			  crea_skill("Crachat acide", 0, Atk_Set_Inc_Stat, [20, ["attack", -1, 3, "defense", -1, 3], []], 0, 1, "", "<enemy> lance de l'acide !", "magic", false, 0, effect_acid),
-			  crea_skill("Frappe visqueuse", 0, Atk_normale, 5, 1, 1, "", "<enemy> attaque !", "bite", false, 0, effect_bite, snd_attack)],
+	skills : [crea_skill("Régénération", 0, PV_recup, 50, 0, 0, "", "<enemy> se régénère !", 0, "heal", false, 0, effect_heal_pv),
+			  crea_skill("Crachat acide", 0, Atk_Set_Inc_Stat, [20, ["attack", -1, 3, "defense", -1, 3], []], 0, 1, "", "<enemy> lance de l'acide !", 0, "magic", false, 0, effect_acid),
+			  crea_skill("Frappe visqueuse", 0, Atk_normale, 5, 1, 1, "", "<enemy> attaque !", 0, "bite", false, 0, effect_bite, snd_attack)],
 	skills_c : [[PV_inferior, [0.30]], [stats_inferior, ["attack", 0]]],
 	choice_enemy_skill : choice_enemy_conditions,
 	choice_enemy_target : choice_target_random,
 	weakness : [["type", "slash", "absorb_dmg", 0], ["type", "pierce", "absorb_dmg", 0], ["type", "pounding", "absorb_dmg", 0], ["alteration", "crippled", "-", 0]],
 	gold : 20,
 	experience : 40,
-	booty : ["potion_energy_1", 1]
+	booty_n : ["potion_energy_1", 1]
 }

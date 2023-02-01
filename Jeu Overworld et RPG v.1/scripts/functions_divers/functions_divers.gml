@@ -182,11 +182,39 @@ function def_exp(player, sound = false, update = true){
 			player.real_magic_attack = round(update_stat(n, player.magic_attack_c))
 			player.real_defense = round(update_stat(n, player.defense_c))
 			player.real_magic_defense = round(update_stat(n, player.magic_defense_c))
-			player.accuracy = round(update_stat(n, player.accuracy_c))
-			player.agility = round(update_stat(n, player.agility_c))
+			player.real_accuracy = round(update_stat(n, player.accuracy_c))
+			player.real_agility = round(update_stat(n, player.agility_c))
 		}
 		
 	}
+}
+
+function def_exp_inst(player, EXP) {
+	while EXP > 0 {
+		var tranche = EXP
+		if tranche > player.EXP_restant {
+			tranche = player.EXP_restant
+		}
+		player.EXP += tranche
+		player.EXP_restant -= tranche
+		EXP -= tranche
+		if player.EXP_restant == 0 {
+			player.Niveau += 1
+			var n = player.Niveau
+			player.EXP_restant = courbe_exp(n + 1) - player.EXP
+		}
+	}
+	var n = player.Niveau
+	player.PV_Max = round(update_stat(n, player.PV_c))
+	player.PM_Max = round(update_stat(n, player.PM_c))
+	player.PV = player.PV_Max
+	player.PM = player.PM_Max
+	player.real_attack = round(update_stat(n, player.attack_c))
+	player.real_magic_attack = round(update_stat(n, player.magic_attack_c))
+	player.real_defense = round(update_stat(n, player.defense_c))
+	player.real_magic_defense = round(update_stat(n, player.magic_defense_c))
+	player.real_accuracy = round(update_stat(n, player.accuracy_c))
+	player.real_agility = round(update_stat(n, player.agility_c))
 }
 	
 function call_object(object, determinant = 0, quantity = 1, maj = false, letter = false) {
@@ -227,7 +255,7 @@ function call_object(object, determinant = 0, quantity = 1, maj = false, letter 
 			}
 		} else if determinant == "de" {
 			var carac = ord(string_char_at(word, 1))
-			if research_array(["a", "e", "o", "i", "u", "y"], carac) {
+			if research_array(["a", "e", "o", "i", "u", "y", "é"], carac) {
 				word = "de l'" + word
 			} else if object.name_conj[0] == "masc" {
 				word = "du " + word
@@ -245,4 +273,22 @@ function call_object(object, determinant = 0, quantity = 1, maj = false, letter 
 		word = chr(carac-32) + word
 	}
 	return word
+}
+	
+function convert_time(time) {
+	time = round(time/30)
+	var h = floor(time/3600)
+	if h < 10 {
+		h = "0"+string(h)
+	}
+	time = time mod 3600
+	var m = floor(time/60)
+	if m < 10 {
+		m = "0"+string(m)
+	}
+	time = time mod 60
+	if time < 10 {
+		time = "0"+string(time)
+	}
+	return string(h) + ":" + string(m) + ":" + string(time)
 }

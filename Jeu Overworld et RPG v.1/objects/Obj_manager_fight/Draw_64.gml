@@ -118,10 +118,10 @@ draw_set_font(Font_mini)
 draw_set_color(c_black)
 
 if message_quick != false && message_quick_t > 0 {
-	draw_text_special(message_quick, 11, 246, 428, 15)
+	draw_text_special(message_quick, 11, 246, 378, 15)
 	message_quick_t --
 } else {
-	draw_text_special(message_monitor, 11, 246, 400-22, 15)
+	draw_text_special(message_monitor, 11, 246, 378, 15)
 }
 
 draw_set_valign(fa_top)
@@ -251,7 +251,7 @@ if menu[menu_i] == "objects" && !act {
 	var len = array_length(global.inventory)
 	var l = (n-1)*2
 	var pages = ceil(len/(n*2)) - 1
-	if choice_objets_page == pages && len mod n != 0 {
+	if choice_objets_page == pages && len mod (n*2) != 0 {
 		l = (len mod (n*2)) - 2
 	}
 	var m = n*choice_objets_page*2

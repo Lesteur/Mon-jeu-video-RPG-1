@@ -179,14 +179,16 @@ function Atk_puiss(lance, cibl, comp){
 	act = true
 	lanceur = lance
 	cible = cibl
-	lanceur.animation = 4
+	//lanceur.animation = 4
 	type_attack = "attack"
 	
 	prepare_action(comp)
 	damage_calcul(comp, comp.puissance)
 	
-	alarm[1] = 20
-	alarm[3] = 80
+	create_cutscene(script_execute(comp.cutscene, id, lanceur, cible))
+	
+	//alarm[1] = 20
+	//alarm[3] = 80
 }
 	
 function Atk_Set_Inc_Stat(lance, cibl, comp){
@@ -261,6 +263,7 @@ function PM_recup(lance, cibl, comp){
 		damage[i] = round(puiss/array_length(cible))
 	}
 	
+	add_action(["heal_pm", lanceur, cible])
 	alarm[1] = 20
 	alarm[3] = 80
 }

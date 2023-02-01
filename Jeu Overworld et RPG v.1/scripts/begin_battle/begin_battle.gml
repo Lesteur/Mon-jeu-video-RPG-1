@@ -1,5 +1,6 @@
 function begin_battle(team, team_enemy, param = {}){
-	global.team = team
+	global.team = []
+	array_copy(global.team, 0, team, 0, array_length(team))
 	global.team_enemy = team_enemy
 	global.param_fight = param
 	global.interact = 1

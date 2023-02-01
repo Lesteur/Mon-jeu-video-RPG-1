@@ -22,3 +22,24 @@ function window_resize() {
 	}
 	alarm[1] = 1
 }
+
+function create_language(language) {
+	var loc = ""
+	var file = file_text_open_read("lang_"+language+".json")
+	while (!file_text_eof(file))
+	{
+	 loc += file_text_readln(file)
+	}
+	file_text_close(file)
+
+	variable_global_set(language, json_decode(loc))
+}
+
+function langtext(id) {
+	var l = variable_global_get(global.language)
+	if ds_map_exists(l, id) {
+		return l[? id]
+	} else {
+		return ""
+	}
+}

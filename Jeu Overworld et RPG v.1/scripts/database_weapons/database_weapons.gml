@@ -35,20 +35,6 @@ global.basic_sword = {
 	sound : snd_attack
 }
 
-global.basic_shield = {
-	name : "Bouclier normal",
-	attack : 0,
-	magic_attack : 0,
-	defense : 3,
-	magic_defense : 0,
-	accuracy : 0,
-	agility : 0,
-	element : false,
-	type_attack : false,
-	type_equipment : "shield",
-	sprite_fight_neutral : basic_shield_neutral
-}
-
 global.basic_staff = {
 	name : "Bâton normal",
 	attack : 2,

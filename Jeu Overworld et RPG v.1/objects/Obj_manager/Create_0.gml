@@ -3,18 +3,14 @@ fade = 1
 fadeDirection = -1
 cc = 0
 transition = 0
+chang_team = false
 
 window_ajust()
 
-var loc = ""
-var file = file_text_open_read("lang_fr.json")
-while (!file_text_eof(file))
-{
- loc += file_text_readln(file)
-}
-file_text_close(file)
+global.timegame = 0
+global.language = "fr"
 
-global.loc = json_decode(loc)
+create_language(global.language)
 
 //if !audio_is_playing(mus_forest01) {
  //   audio_play_sound(mus_forest01, 9, true)

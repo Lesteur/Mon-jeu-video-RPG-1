@@ -33,14 +33,14 @@ function set_equipment(player, weap=true) {
 	player.agility = player.real_agility
 	player.accuracy = player.real_accuracy
 	for (var i = 0; i < array_length(array); i++) {
-		if !is_array(player.equipment[? array[i]]) {
+		if is_struct(player.equipment[? array[i]]) {
 			player.attack += player.equipment[? array[i]].attack
 			player.magic_attack += player.equipment[? array[i]].magic_attack
 			player.defense += player.equipment[? array[i]].defense
 			player.magic_defense += player.equipment[? array[i]].magic_defense
 			player.accuracy += player.equipment[? array[i]].accuracy
 			player.agility += player.equipment[? array[i]].agility
-		} else {
+		} else if is_array(player.equipment[? array[i]]) {
 			player.attack += player.equipment[? array[i]][0].attack
 		}
 	}
@@ -136,7 +136,7 @@ function lower_statuts() {
 }
 
 function effect_status(comp, a) {
-	var attack_status = 1
+	var attack = 1
 	var array = ds_map_keys_to_array(cible[a].status_list)
 	for (var i = 0; i < array_length(array); i++) {
 		var alt = array[i]
@@ -144,17 +144,17 @@ function effect_status(comp, a) {
 			case "burn":
 			case "freeze":
 				if comp.element == "fire" || comp.element == "ice" {
-					attack_status += 0.3
+					attack += 0.5
 				}
 				break
 			case "paralysis":
 				if comp.element == "thunder" || comp.element == "water" {
-					attack_status += 0.3
+					attack += 0.5
 				}
 				break
 		}
 	}
-	return attack_status
+	return attack
 }
 	
 function add_action(action) {
@@ -244,6 +244,14 @@ function add_inventory(add_boot) {
 				array_insert(global.inventory, 0, object)
 				array_insert(global.inventory, 1, add_boot[i+1])
 			}
+	}
+}
+	
+function remove_inventory(indice, storage, n = 1) {
+	var stor = variable_global_get(storage)
+	stor[indice+1] -= n
+	if stor[indice+1] <= 0 {
+		array_delete(stor, indice, 2)
 	}
 }
 	
@@ -345,7 +353,11 @@ function recup_data_fight() {
 	for (var i = 0; i < array_length(global.team); i++) {
 		var char = global.team[i]
 		var j = char.Num
-		global.characters[j].PV = char.PV
+		if char.PV > 0 {
+			global.characters[j].PV = char.PV
+		} else {
+			global.characters[j].PV = 1
+		}
 		global.characters[j].PV_Max = char.PV_Max
 		global.characters[j].PM = char.PM
 		global.characters[j].PM_Max = char.PM_Max
@@ -353,11 +365,11 @@ function recup_data_fight() {
 		global.characters[j].EXP = char.EXP
 		global.characters[j].EXP_restant = char.EXP_restant
 		
-		global.characters[i].real_attack = char.real_attack
-		global.characters[i].real_defense = char.real_defense
-		global.characters[i].real_magic_attack = char.real_magic_attack
-		global.characters[i].real_magic_defense = char.real_magic_defense
-		global.characters[i].real_accuracy = char.real_accuracy
-		global.characters[i].real_agility = char.real_agility
+		global.characters[j].real_attack = char.real_attack
+		global.characters[j].real_defense = char.real_defense
+		global.characters[j].real_magic_attack = char.real_magic_attack
+		global.characters[j].real_magic_defense = char.real_magic_defense
+		global.characters[j].real_accuracy = char.real_accuracy
+		global.characters[j].real_agility = char.real_agility
 	}
 }

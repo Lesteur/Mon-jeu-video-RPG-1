@@ -37,7 +37,7 @@ function choice_enemy_random(enemy) {
 function choice_target_pv_inferior() {
 	var i = 0
 	var pv = team_a[0].PV
-	for (var a = 1; a < array_length(team_a); i++) {
+	for (var a = 1; a < array_length(team_a); a++) {
 		if team_a[a].PV < pv {
 			pv = team_a[a].PV
 			i = a
@@ -49,7 +49,7 @@ function choice_target_pv_inferior() {
 function choice_target_pv_superior() {
 	var i = 0
 	var pv = team_a[0].PV
-	for (var a = 1; a < array_length(team_a); i++) {
+	for (var a = 1; a < array_length(team_a); a++) {
 		if team_a[a].PV > pv {
 			pv = team_a[a].PV
 			i = a

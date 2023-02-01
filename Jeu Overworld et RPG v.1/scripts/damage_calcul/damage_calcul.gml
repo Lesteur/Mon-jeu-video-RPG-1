@@ -32,8 +32,6 @@ function set_weak1(array, type, element) {
 
 function damage_calcul(comp, puiss){
 	
-	//var puiss = comp.puissance
-	
 	var typ = comp.type_attack
 	if typ == "weapon" {
 		if lanceur.weapon != noone {
@@ -80,6 +78,7 @@ function damage_calcul(comp, puiss){
 		
 		var array_weak = cible[i].weakness
 		set_weak1(array_weak, typ, elem)
+		wk = wk * effect_status(comp, i)
 		
 		if wk >= 1.5 {
 			var PF = "weakness"
@@ -97,7 +96,7 @@ function damage_calcul(comp, puiss){
 		}
 		
 		if precision > random(1) {
-			damage[i] = round(random_range(0.9, 1.1) * (effect_status(comp, i) * att * (puiss/array_length(cible))*att_boost*wk) / (def*cible[i].guard *def_boost*stgth))
+			damage[i] = round((random_range(0.9, 1.1) * att * (puiss/array_length(cible))*att_boost*wk) / (def*cible[i].guard *def_boost*stgth))
 			array_insert(touch_enemies, array_length(touch_enemies), cible[i])
 		} else {
 			damage[i] = "miss"
